@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AMBO · Early access</title>
+<meta name="description" content="Shadowbox one round in front of your phone. AMBO finds what to fix and gives you the drill. Join early access and get your first month free.">
+<meta name="theme-color" content="#101419">
+<link rel="canonical" href="https://amboapp.ai/waitlist">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://amboapp.ai/waitlist">
+<meta property="og:title" content="AMBO · Get coached every round.">
+<meta property="og:description" content="Shadowbox one round in front of your phone. AMBO finds what to fix and gives you the drill.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 181 79'%3E%3Crect width='181' height='79' fill='%23101419'/%3E%3Cpath d='M145.7.7H0s65.4 21.4 86.5 28.3c6.6 2.2 11 1.1 16.9-2.5C113.8 20.2 145.7.7 145.7.7Z' fill='%23CA986D'/%3E%3Cpath d='M155 .7 126 20.3a30 30 0 0 0-14 17.3L95.8 77.8 180.3.7H155Z' fill='%238098B7'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&display=swap">
+<style>
+:root{
+  --void:#101419; --panel:#23262b; --text:#f8f6f4; --muted:#8098b7; --bronze:#ca986d; --bronze-hover:#d4a67e;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--void);color:var(--text)}
+body{
+  font-family:"DM Sans",system-ui,-apple-system,sans-serif;
+  font-feature-settings:"ss03","ss07";
+  -webkit-font-smoothing:antialiased;
+  min-height:100vh; min-height:100dvh;
+}
+a{color:var(--muted);text-decoration:none}
+a:hover{color:var(--text)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+.page{
+  min-height:100vh; min-height:100dvh;
+  max-width:1280px; margin:0 auto;
+  padding:40px 64px 36px;
+  display:flex; flex-direction:column;
+}
+.logo{display:flex;align-items:center;height:40px}
+.logo svg{width:132px;height:auto;display:block}
+
+.hero{
+  display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:80px; align-items:center;
+  margin:56px 0 48px;
+}
+.copy{max-width:560px}
+.eyebrow{font-size:13px;line-height:16px;font-weight:500;text-transform:uppercase;letter-spacing:.04em;color:var(--bronze)}
+h1{margin:16px 0 0;font-size:64px;line-height:68px;font-weight:500;letter-spacing:0}
+.sub{margin:24px 0 0;font-size:20px;line-height:30px;color:var(--muted)}
+.sub b{font-weight:400;color:var(--bronze)}
+
+form{display:flex;gap:12px;margin-top:40px}
+input[type=email]{
+  flex:1 1 auto; min-width:0; height:56px; padding:0 20px;
+  background:var(--panel); border:1px solid #f8f6f433; border-radius:12px;
+  color:var(--text); font:400 16px/1 inherit; font-family:inherit;
+}
+input[type=email]::placeholder{color:var(--muted);opacity:1}
+input[type=email]:focus{outline:1.5px solid var(--bronze);outline-offset:0}
+button{
+  height:56px; padding:0 28px; background:var(--bronze); color:var(--void);
+  border:0; border-radius:12px; font-family:inherit; font-size:16px; font-weight:500;
+  cursor:pointer; white-space:nowrap;
+}
+button:hover{background:var(--bronze-hover)}
+button:disabled{opacity:.6;cursor:default}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.note{margin:12px 0 0;font-size:13px;line-height:18px;color:var(--muted)}
+.note.err{color:#e8a598}
+
+.done{display:none;margin-top:40px;padding:20px 22px;border:1px solid var(--bronze);border-radius:12px;background:#ca986d14}
+.done .t{font-size:18px;line-height:26px;font-weight:500}
+.done .d{margin-top:4px;font-size:15px;line-height:22px;color:var(--muted)}
+.is-done form,.is-done .note{display:none}
+.is-done .done{display:block}
+
+/* Visual: skeleton card now, product video later (swap the <svg> for a <video>) */
+.visual{
+  position:relative; width:460px; height:640px; justify-self:end;
+  border-radius:20px; overflow:hidden; border:1px solid #f8f6f414;
+  background:radial-gradient(120% 80% at 50% 100%,#1e2a3a 0%,#191d22 45%,#101419 100%);
+}
+.visual > svg, .visual > video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.visual > svg.m-only{display:none}
+.hud{position:absolute;left:24px;top:20px;display:flex;gap:10px;align-items:center;font-size:11px;line-height:14px;font-weight:500;text-transform:uppercase}
+.dot{width:3px;height:3px;background:var(--muted);display:inline-block}
+.tag{
+  position:absolute; display:flex; align-items:center; gap:8px; height:26px; padding:0 10px 0 8px;
+  background:#101419d1; border:1px solid #f8f6f426; border-radius:8px;
+  font-size:11px; line-height:14px; font-weight:500; text-transform:uppercase; color:var(--text);
+}
+.tag.flag{border-color:var(--bronze);color:var(--bronze)}
+.tag.flag i{width:6px;height:6px;border-radius:999px;background:var(--bronze);display:inline-block}
+.card{
+  position:absolute; left:20px; right:20px; bottom:20px; padding:14px 16px 16px;
+  background:#101419d1; border:1px solid #f8f6f426; border-radius:12px;
+  display:flex; flex-direction:column; gap:4px;
+}
+.card .k{font-size:11px;line-height:14px;font-weight:500;text-transform:uppercase;color:var(--bronze)}
+.card .h{font-size:17px;line-height:24px;font-weight:500}
+.card .s{font-size:13px;line-height:18px;color:var(--muted)}
+.m-only{display:none}
+
+footer{
+  margin-top:auto; display:flex; align-items:center; justify-content:space-between;
+  font-size:11px; line-height:14px; font-weight:500; text-transform:uppercase; color:var(--muted);
+}
+footer div{display:flex;gap:20px}
+
+/* Tablet */
+@media (max-width:1080px){
+  .page{padding:32px 40px}
+  .hero{gap:48px}
+  h1{font-size:52px;line-height:56px}
+  .visual{width:100%;max-width:420px;height:580px}
+}
+
+/* Phone */
+@media (max-width:820px){
+  .page{padding:24px 20px 28px;padding-bottom:max(28px,env(safe-area-inset-bottom))}
+  .logo{height:32px}
+  .logo svg{width:108px}
+  .hero{display:flex;flex-direction:column;align-items:stretch;gap:0;margin:40px 0 32px}
+  .copy{max-width:none;display:contents}
+  .eyebrow{order:1}
+  h1{order:2;margin-top:12px;font-size:40px;line-height:44px}
+  .sub{order:3;margin-top:16px;font-size:17px;line-height:26px}
+  .visual{order:4;width:100%;max-width:none;height:190px;margin-top:20px;justify-self:auto}
+  .formwrap{order:5}
+  form{flex-direction:column;margin-top:24px}
+  button{width:100%}
+  .note{text-align:center}
+  .done{margin-top:24px}
+  .d-only{display:none}
+  .m-only, .visual > svg.m-only{display:block}
+  .visual > svg.d-only{display:none}
+  footer div{gap:16px}
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="logo">
+    <a href="https://amboapp.ai" aria-label="AMBO home">
+      <svg viewBox="0 0 490 78" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AMBO">
+        <path d="M145.743 0.66394H0C0 0.66394 65.3508 22.0842 86.469 29.0082C93.0468 31.1664 97.459 30.1204 103.367 26.5185C113.767 20.169 145.743 0.671308 145.743 0.671308V0.66394Z" fill="#CA986D"/>
+        <path d="M154.965 0.66394L126.009 20.3237C119.748 24.5738 114.894 30.5845 112.051 37.5969L95.7646 77.7929L180.274 0.66394H154.965Z" fill="#8098B7"/>
+        <path d="M407.9 24.4931V24.1542C408.674 23.565 409.462 22.7474 410.279 21.7014C411.87 19.4769 412.659 16.8914 412.659 13.945C412.659 9.99687 411.414 6.80005 408.917 4.34718C406.42 1.89432 403.134 0.67157 399.046 0.67157H363.918V48.3072H399.724C403.805 48.3072 407.097 47.0845 409.594 44.6316C412.084 42.1787 413.336 38.9819 413.336 35.0338C413.336 31.9032 412.43 29.2073 410.618 26.9312C409.801 25.8852 408.895 25.075 407.893 24.4783L407.9 24.4931ZM372.772 8.50158H398.03C399.798 8.50158 401.204 9.04666 402.25 10.1368C403.296 11.227 403.812 12.7223 403.812 14.6301C403.812 16.3537 403.282 17.7459 402.214 18.8139C401.146 19.882 399.753 20.4123 398.03 20.4123H372.772V8.50158ZM402.759 38.7167C401.602 39.8953 400.254 40.4846 398.707 40.4846H372.764V28.235H398.707C400.247 28.235 401.595 28.8243 402.759 30.0028C403.915 31.1814 404.497 32.6325 404.497 34.3561C404.497 36.0797 403.915 37.5308 402.759 38.7094V38.7167Z" fill="#F8F6F4"/>
+        <path d="M307.562 39.1516H306.126L285.671 0.679138H274.231V48.3074H283.085V15.3079H284.441L302.178 48.3074H311.54L329.277 15.3079H330.64V48.3074H339.479V0.679138H328.025L307.562 39.1516Z" fill="#F8F6F4"/>
+        <path d="M215.228 0.679138L187.031 48.3148H197.638L203.642 38.1056H237.378L243.373 48.3148H253.98L225.784 0.679138H215.236H215.228ZM208.437 29.9367L219.64 10.881H221.386L232.575 29.9367H208.437Z" fill="#F8F6F4"/>
+        <path d="M461.818 0C443.02 0 434.041 9.95878 434.041 24.4918C434.041 39.0249 443.02 48.9836 461.818 48.9836C480.616 48.9836 489.595 39.0249 489.595 24.4918C489.595 9.95878 480.616 0 461.818 0ZM461.818 40.4833C449.539 40.4833 443.683 33.9792 443.683 24.4918C443.683 15.0045 449.546 8.50032 461.818 8.50032C474.09 8.50032 479.953 14.9971 479.953 24.4918C479.953 33.9865 474.09 40.4833 461.818 40.4833Z" fill="#F8F6F4"/>
+      </svg>
+    </a>
+  </header>
+
+  <main class="hero">
+    <div class="copy">
+      <div class="eyebrow">Early access</div>
+      <h1>Get coached every round.</h1>
+      <p class="sub">Shadowbox one round in front of your phone. <b>AMBO</b> finds what to fix and gives you the drill.</p>
+
+      <div class="formwrap" id="formwrap">
+        <form id="waitlist" novalidate>
+          <label for="email" class="sr">Email address</label>
+          <input id="email" name="email" type="email" placeholder="you@email.com" autocomplete="email" inputmode="email" required>
+          <input class="hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <button type="submit" id="submit">Get my free month</button>
+        </form>
+        <p class="note" id="note" aria-live="polite">Starts at launch. No card needed now.</p>
+        <div class="done" role="status">
+          <div class="t">You're on the list.</div>
+          <div class="d">Your free month is saved for launch. Check your inbox.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- VIDEO SLOT: when the product video is ready, replace the two <svg>s, the .hud, the .tag and .card elements with:
+         <video src="ambo-waitlist.mp4" poster="ambo-waitlist.jpg" autoplay muted loop playsinline></video> -->
+    <div class="visual" aria-hidden="true">
+      <!-- Desktop: full-body skeleton -->
+      <svg class="d-only" viewBox="0 0 460 640" preserveAspectRatio="xMidYMid slice">
+        <g stroke="#8098b7" stroke-width="1.5" stroke-dasharray="8 8" fill="none" stroke-linecap="round">
+          <line x1="238" y1="114" x2="240" y2="152"/><line x1="205" y1="155" x2="275" y2="150"/>
+          <line x1="205" y1="155" x2="210" y2="300"/><line x1="275" y1="150" x2="262" y2="298"/>
+          <line x1="210" y1="300" x2="262" y2="298"/><line x1="205" y1="155" x2="170" y2="225"/>
+          <line x1="170" y1="225" x2="205" y2="180"/><line x1="275" y1="150" x2="345" y2="130"/>
+          <line x1="345" y1="130" x2="415" y2="115"/><line x1="210" y1="300" x2="185" y2="400"/>
+          <line x1="185" y1="400" x2="172" y2="500"/><line x1="262" y1="298" x2="300" y2="395"/>
+          <line x1="300" y1="395" x2="330" y2="495"/>
+        </g>
+        <circle cx="238" cy="98" r="16" fill="none" stroke="#8098b7" stroke-width="1.5" stroke-dasharray="8 8"/>
+        <g fill="#f8f6f4" opacity="0.25">
+          <circle cx="205" cy="155" r="9"/><circle cx="275" cy="150" r="9"/><circle cx="170" cy="225" r="9"/><circle cx="205" cy="180" r="9"/>
+          <circle cx="345" cy="130" r="9"/><circle cx="415" cy="115" r="9"/><circle cx="185" cy="400" r="9"/><circle cx="300" cy="395" r="9"/>
+          <circle cx="172" cy="500" r="9"/><circle cx="330" cy="495" r="9"/>
+        </g>
+        <g fill="#f8f6f4">
+          <circle cx="238" cy="98" r="3"/><circle cx="205" cy="155" r="4"/><circle cx="275" cy="150" r="4"/><circle cx="170" cy="225" r="4"/>
+          <circle cx="205" cy="180" r="4"/><circle cx="345" cy="130" r="4"/><circle cx="415" cy="115" r="4"/><circle cx="185" cy="400" r="4"/>
+          <circle cx="300" cy="395" r="4"/><circle cx="172" cy="500" r="4"/><circle cx="330" cy="495" r="4"/>
+        </g>
+        <g fill="none" stroke="#f8f6f4" stroke-width="1" opacity="0.7">
+          <circle cx="205" cy="180" r="13"/><circle cx="172" cy="500" r="13"/><circle cx="330" cy="495" r="13"/>
+        </g>
+        <circle cx="210" cy="300" r="11" fill="#ca986d" opacity="0.3"/><circle cx="262" cy="298" r="11" fill="#ca986d" opacity="0.3"/>
+        <circle cx="210" cy="300" r="4.5" fill="#ca986d"/><circle cx="262" cy="298" r="4.5" fill="#ca986d"/>
+        <circle cx="210" cy="300" r="14" fill="none" stroke="#ca986d" stroke-width="1.5"/><circle cx="262" cy="298" r="14" fill="none" stroke="#ca986d" stroke-width="1.5"/>
+      </svg>
+
+      <!-- Phone: cropped head-to-hips strip -->
+      <svg class="m-only" viewBox="20 78 442 240" preserveAspectRatio="xMidYMid slice">
+        <g stroke="#8098b7" stroke-width="1.5" stroke-dasharray="8 8" fill="none" stroke-linecap="round">
+          <line x1="238" y1="114" x2="240" y2="152"/><line x1="205" y1="155" x2="275" y2="150"/>
+          <line x1="205" y1="155" x2="210" y2="300"/><line x1="275" y1="150" x2="262" y2="298"/>
+          <line x1="210" y1="300" x2="262" y2="298"/><line x1="205" y1="155" x2="170" y2="225"/>
+          <line x1="170" y1="225" x2="205" y2="180"/><line x1="275" y1="150" x2="345" y2="130"/>
+          <line x1="345" y1="130" x2="415" y2="115"/>
+        </g>
+        <circle cx="238" cy="98" r="16" fill="none" stroke="#8098b7" stroke-width="1.5" stroke-dasharray="8 8"/>
+        <g fill="#f8f6f4" opacity="0.25">
+          <circle cx="205" cy="155" r="9"/><circle cx="275" cy="150" r="9"/><circle cx="170" cy="225" r="9"/><circle cx="205" cy="180" r="9"/><circle cx="415" cy="115" r="9"/>
+        </g>
+        <g fill="#f8f6f4">
+          <circle cx="238" cy="98" r="3"/><circle cx="205" cy="155" r="4"/><circle cx="275" cy="150" r="4"/><circle cx="170" cy="225" r="4"/><circle cx="205" cy="180" r="4"/><circle cx="415" cy="115" r="4"/>
+        </g>
+        <circle cx="205" cy="180" r="13" fill="none" stroke="#f8f6f4" stroke-width="1" opacity="0.7"/>
+        <circle cx="210" cy="300" r="11" fill="#ca986d" opacity="0.3"/><circle cx="262" cy="298" r="11" fill="#ca986d" opacity="0.3"/><circle cx="345" cy="130" r="11" fill="#ca986d" opacity="0.3"/>
+        <circle cx="210" cy="300" r="4.5" fill="#ca986d"/><circle cx="262" cy="298" r="4.5" fill="#ca986d"/><circle cx="345" cy="130" r="4.5" fill="#ca986d"/>
+        <circle cx="210" cy="300" r="14" fill="none" stroke="#ca986d" stroke-width="1.5"/><circle cx="262" cy="298" r="14" fill="none" stroke="#ca986d" stroke-width="1.5"/><circle cx="345" cy="130" r="14" fill="none" stroke="#ca986d" stroke-width="1.5"/>
+      </svg>
+
+      <!-- Desktop overlays -->
+      <div class="hud d-only">
+        <span style="color:var(--bronze)">Assessment</span><span class="dot"></span>
+        <span style="color:var(--muted)">Round 1</span><span class="dot"></span>
+        <span>0:47</span>
+      </div>
+      <div class="tag d-only" style="left:36px;top:168px"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="#8098b7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.5l2.5 2.5 4.5-5"/></svg><span>Guard held</span></div>
+      <div class="tag d-only" style="left:36px;top:486px"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="#8098b7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.5l2.5 2.5 4.5-5"/></svg><span>Stance width</span></div>
+      <div class="tag flag d-only" style="left:296px;top:288px"><i></i><span>Hip rotation</span></div>
+      <div class="card d-only">
+        <div class="k">Next thing to work on</div>
+        <div class="h">Turn your hips more on the cross.</div>
+        <div class="s">On most crosses, the punch comes from the arm.</div>
+      </div>
+
+      <!-- Phone overlays -->
+      <div class="tag m-only" style="left:14px;top:40px"><span style="display:flex;align-items:center;gap:8px"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="#8098b7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.5l2.5 2.5 4.5-5"/></svg>Guard held</span></div>
+      <div class="tag flag m-only" style="right:14px;top:66px"><span style="display:flex;align-items:center;gap:8px"><i></i>Elbow tuck</span></div>
+      <div class="tag flag m-only" style="right:40px;top:152px"><span style="display:flex;align-items:center;gap:8px"><i></i>Hip rotation</span></div>
+    </div>
+  </main>
+
+  <footer>
+    <span>amboapp.ai</span>
+    <div>
+      <a href="/privacy">Privacy</a>
+      <a href="/terms">Terms</a>
+      <span>© 2026 AMBO</span>
+    </div>
+  </footer>
+</div>
+
+<script>
+(function(){
+  // Signups go to the Vercel function in api/waitlist.js, which adds them to Loops.
+  // Expects a POST with JSON {email, source, referrer, utm}. Any 2xx = success.
+  var ENDPOINT = "/api/waitlist";
+
+  var form = document.getElementById('waitlist');
+  var wrap = document.getElementById('formwrap');
+  var note = document.getElementById('note');
+  var btn = document.getElementById('submit');
+  var defaultNote = note.textContent;
+
+  function utm(){
+    var p = new URLSearchParams(location.search), o = {};
+    ['utm_source','utm_medium','utm_campaign','utm_content','ref'].forEach(function(k){ if(p.get(k)) o[k]=p.get(k); });
+    return o;
+  }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var email = form.email.value.trim();
+    if (form.company.value) { wrap.classList.add('is-done'); return; } // bot
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      note.textContent = 'Enter a valid email address.'; note.classList.add('err'); form.email.focus(); return;
+    }
+    note.textContent = defaultNote; note.classList.remove('err');
+    btn.disabled = true; btn.textContent = 'Saving…';
+
+    var payload = { email: email, source: 'waitlist', referrer: document.referrer || null, utm: utm() };
+    if (!ENDPOINT) { console.warn('[AMBO] No ENDPOINT set; signup not stored', payload); wrap.classList.add('is-done'); return; }
+
+    fetch(ENDPOINT, { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(payload) })
+      .then(function(r){ if(!r.ok) throw new Error(r.status); wrap.classList.add('is-done'); })
+      .catch(function(){
+        btn.disabled = false; btn.textContent = 'Get my free month';
+        note.textContent = 'Something went wrong. Try again in a moment.'; note.classList.add('err');
+      });
+  });
+})();
+</script>
+</body>
+</html>

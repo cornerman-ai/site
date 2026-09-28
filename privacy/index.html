@@ -1,240 +1,126 @@
-<!DOCTYPE html>
-<!--
-  DRAFT — review before publishing. Not legal advice.
-  Provider is currently the individual Mathe Wieme (UAE); swap to a company
-  entity here and in terms.html if/when one is formed.
-  Placeholders to confirm: minimum age (default 16), data-retention period.
--->
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="robots" content="index, follow" />
-  <title>Privacy Policy · Cornerman</title>
-  <style>
-    :root {
-      --navy: #0d1b35;
-      --terracotta: #c8633f;
-      --cream: #f6f1e7;
-      --ink: #1c2435;
-      --ink-soft: #4a5468;
-      --line: #e2dccd;
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      color: var(--ink);
-      background: var(--cream);
-      line-height: 1.6;
-    }
-    .wrap { max-width: 760px; margin: 0 auto; padding: 48px 24px 96px; }
-    header { border-bottom: 2px solid var(--navy); padding-bottom: 20px; margin-bottom: 32px; }
-    .brand { font-size: 14px; letter-spacing: 2px; text-transform: uppercase; color: var(--terracotta); font-weight: 700; }
-    h1 { font-size: 34px; line-height: 1.15; margin: 8px 0 6px; color: var(--navy); }
-    .updated { font-size: 14px; color: var(--ink-soft); }
-    h2 { font-size: 21px; margin: 40px 0 10px; color: var(--navy); }
-    h3 { font-size: 16px; margin: 22px 0 6px; color: var(--navy); }
-    p, li { font-size: 16px; color: var(--ink); }
-    ul { padding-left: 22px; }
-    li { margin-bottom: 8px; }
-    a { color: var(--terracotta); }
-    .callout {
-      background: #fff;
-      border: 1px solid var(--line);
-      border-left: 4px solid var(--terracotta);
-      border-radius: 8px;
-      padding: 16px 20px;
-      margin: 20px 0;
-    }
-    .callout strong { color: var(--navy); }
-    footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--line); font-size: 14px; color: var(--ink-soft); }
-    footer a { color: var(--ink-soft); }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AMBO · Privacy</title>
+<meta name="description" content="How AMBO handles your data on amboapp.ai.">
+<meta name="theme-color" content="#101419">
+<link rel="canonical" href="https://amboapp.ai/privacy">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&display=swap">
+<style>
+:root{--void:#101419;--text:#f8f6f4;--muted:#8098b7;--bronze:#ca986d}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--void);color:var(--text)}
+body{font-family:"DM Sans",system-ui,-apple-system,sans-serif;font-feature-settings:"ss03","ss07";-webkit-font-smoothing:antialiased}
+a{color:var(--bronze)}a:hover{color:var(--text)}
+.page{max-width:720px;margin:0 auto;padding:40px 24px 64px}
+.top{display:flex;align-items:center;justify-content:space-between;height:40px}
+.top a.home{font-size:11px;font-weight:500;text-transform:uppercase;color:var(--muted);text-decoration:none}
+.top a.home:hover{color:var(--text)}
+.eyebrow{margin-top:56px;font-size:13px;font-weight:500;text-transform:uppercase;letter-spacing:.04em;color:var(--bronze)}
+h1{margin:12px 0 8px;font-size:44px;line-height:48px;font-weight:500}
+.updated{color:var(--muted);font-size:14px}
+h2{margin:40px 0 8px;font-size:20px;line-height:28px;font-weight:500}
+p,li{font-size:16px;line-height:26px;color:#d6dbe3}
+ul{padding-left:20px}
+li{margin-bottom:6px}
+h3{margin:24px 0 4px;font-size:16px;font-weight:500;color:var(--text)}
+.callout{margin:24px 0;padding:16px 20px;border:1px solid #ca986d55;border-radius:12px;background:#ca986d10}
+.callout strong{color:var(--text);font-weight:500}
+footer{margin-top:64px;font-size:11px;font-weight:500;text-transform:uppercase;color:var(--muted)}
+@media (max-width:600px){h1{font-size:34px;line-height:40px}}
+</style>
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <div class="brand">Cornerman</div>
-      <h1>Privacy Policy</h1>
-      <div class="updated">Last updated: 30 May 2026 · Version 1</div>
-    </header>
-
-    <p>
-      Cornerman ("Cornerman", the "App", "we", "us", "our") is a mobile
-      application that records your boxing sessions on your phone, analyses
-      your movement, and gives you feedback. This Privacy Policy explains what
-      personal data we collect, how we use it, and the choices you have.
-    </p>
-    <p>
-      Cornerman is provided by Mathe Wieme, an individual based in the United
-      Arab Emirates. You can reach us at
-      <a href="mailto:support@corner-man.ai">support@corner-man.ai</a>.
-    </p>
-
-    <div class="callout">
-      <strong>The short version.</strong> The App records video and audio of
-      you training and analyses your movement on your device. We upload that
-      recording and the movement data from it to our cloud and use it to improve
-      and train the models that power the App. Your account is identified by the
-      email address you use to sign in, so you can reach your data across
-      devices — we don't ask for your name or phone number, and we do not
-      sell your data or run ads. You can ask us to delete everything at any
-      time.
-    </div>
-
-    <h2>1. Who is responsible for your data</h2>
-    <p>
-      Mathe Wieme (United Arab Emirates) is the controller responsible for the
-      personal data processed through Cornerman. Questions or requests:
-      <a href="mailto:support@corner-man.ai">support@corner-man.ai</a>.
-    </p>
-
-    <h2>2. What we collect</h2>
-
-    <h3>Session recordings</h3>
-    <p>
-      When you record a session, the App captures <strong>video and audio</strong>
-      of you training using your device's camera and microphone. The audio
-      includes the sound of your strikes, which helps the App detect and time
-      your punches.
-    </p>
-
-    <h3>Movement and analysis data</h3>
-    <p>
-      From each recording the App derives body-position ("pose" or "skeleton")
-      data, on-device analysis results (such as punch counts and form metrics),
-      and, in guided sessions, a timeline of the drills and cues that were
-      called out.
-    </p>
-
-    <h3>Account and identifiers</h3>
-    <p>
-      A login is required to use the App. You can sign in with Google, Apple, or
-      an email address and password. However you sign in, the App collects your
-      <strong>email address</strong> and assigns a user identifier so your data
-      can be stored and synced across sessions and devices. Your email address is
-      linked to your account and the data associated with it. We do
-      <strong>not</strong> collect your name or phone number.
-    </p>
-    <p>
-      If you sign in with Google or Apple, we receive your email address from
-      that provider but never your password. If you sign in with an email and
-      password, the password is handled by our authentication provider and stored
-      only in hashed form &mdash; we never see it in plain text.
-    </p>
-
-    <h3>Preferences and consent</h3>
-    <p>
-      The App stores the preferences you choose during setup (such as your
-      stance, skill level, and training focus) and a record that you accepted
-      this Privacy Policy, including the date and version.
-    </p>
-
-    <h3>Technical data</h3>
-    <p>
-      Our service providers process standard technical information needed to
-      operate the App, such as app version, device type, network requests, and
-      timestamps.
-    </p>
-
-    <h2>3. How we use your data</h2>
-    <ul>
-      <li><strong>To run the App</strong> — recording sessions and analysing
-        your movement. Most analysis happens directly on your device.</li>
-      <li><strong>To store and sync your sessions</strong> so they are
-        available to you.</li>
-      <li><strong>To improve and train our machine-learning models.</strong>
-        We use your uploaded recordings and the movement data derived from them
-        to develop, evaluate, and retrain the models that power Cornerman's
-        analysis and feedback.</li>
-      <li><strong>To maintain, secure, and debug</strong> the service.</li>
-    </ul>
-    <p>
-      We do not use your data for third-party advertising, and we do not sell
-      your personal data.
-    </p>
-
-    <h2>4. On-device processing</h2>
-    <p>
-      Cornerman's movement analysis runs on your phone. Uploading your
-      recordings and derived data to our cloud is what enables storage, sync,
-      and the model-improvement use described above.
-    </p>
-
-    <h2>5. Who we share data with</h2>
-    <p>
-      We use <strong>Google Firebase</strong> (Authentication, Realtime
-      Database, and Cloud Storage) to host and process data on our behalf. Their
-      handling of data is governed by
-      <a href="https://policies.google.com/privacy" rel="noopener" target="_blank">Google's Privacy Policy</a>.
-      We share data with service providers only as needed to run the App, and
-      we may disclose data where required by law.
-    </p>
-
-    <h2>6. International transfers</h2>
-    <p>
-      We are based in the United Arab Emirates, and our service providers may
-      store and process your data on servers located in other countries. Where
-      data is transferred internationally, we rely on our providers' safeguards
-      for protecting it.
-    </p>
-
-    <h2>7. How long we keep your data</h2>
-    <p>
-      We keep your recordings and derived data for as long as needed to provide
-      the App and to develop and improve our models, unless you ask us to delete
-      them. <!-- TODO: confirm a concrete retention period if you want to state one. -->
-    </p>
-
-    <h2>8. Your rights and choices</h2>
-    <p>
-      You can ask us to access, correct, or delete your data, or to stop using
-      it to improve our models, by emailing
-      <a href="mailto:support@corner-man.ai">support@corner-man.ai</a>. To help
-      us locate your data, please contact us from the email address associated
-      with your account.
-    </p>
-    <p>
-      Depending on where you live, you may have additional rights under laws
-      such as the UAE Personal Data Protection Law (Federal Decree-Law No. 45 of
-      2021), the EU/UK GDPR, or the California Consumer Privacy Act. We honour
-      these rights where they apply to you.
-    </p>
-
-    <h2>9. Security</h2>
-    <p>
-      We use reasonable technical and organisational measures, including the
-      security features of our cloud providers, to protect your data. No method
-      of transmission or storage is completely secure, so we cannot guarantee
-      absolute security.
-    </p>
-
-    <h2>10. Children</h2>
-    <p>
-      Cornerman is not directed to children under 16, and we do not knowingly
-      collect data from them. If you believe a child has used the App, contact
-      us and we will delete the data.
-      <!-- TODO: confirm minimum age (16 assumed; align with terms.html and your App Store age rating). -->
-    </p>
-
-    <h2>11. Changes to this policy</h2>
-    <p>
-      We may update this policy. If we make a material change to how we handle
-      your data, we will ask you to review and accept the updated policy in the
-      App before you continue recording.
-    </p>
-
-    <h2>12. Contact</h2>
-    <p>
-      Mathe Wieme · United Arab Emirates ·
-      <a href="mailto:support@corner-man.ai">support@corner-man.ai</a>
-    </p>
-
-    <footer>
-      <a href="/">Cornerman</a> · <a href="/privacy">Privacy Policy</a> ·
-      <a href="/terms">Terms of Use</a>
-    </footer>
+<div class="page">
+  <div class="top">
+    <a href="/waitlist" aria-label="AMBO home">
+      <svg width="120" viewBox="0 0 490 78" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AMBO">
+        <path d="M145.743 0.66394H0C0 0.66394 65.3508 22.0842 86.469 29.0082C93.0468 31.1664 97.459 30.1204 103.367 26.5185C113.767 20.169 145.743 0.671308 145.743 0.671308V0.66394Z" fill="#CA986D"/>
+        <path d="M154.965 0.66394L126.009 20.3237C119.748 24.5738 114.894 30.5845 112.051 37.5969L95.7646 77.7929L180.274 0.66394H154.965Z" fill="#8098B7"/>
+        <path d="M407.9 24.4931V24.1542C408.674 23.565 409.462 22.7474 410.279 21.7014C411.87 19.4769 412.659 16.8914 412.659 13.945C412.659 9.99687 411.414 6.80005 408.917 4.34718C406.42 1.89432 403.134 0.67157 399.046 0.67157H363.918V48.3072H399.724C403.805 48.3072 407.097 47.0845 409.594 44.6316C412.084 42.1787 413.336 38.9819 413.336 35.0338C413.336 31.9032 412.43 29.2073 410.618 26.9312C409.801 25.8852 408.895 25.075 407.893 24.4783L407.9 24.4931ZM372.772 8.50158H398.03C399.798 8.50158 401.204 9.04666 402.25 10.1368C403.296 11.227 403.812 12.7223 403.812 14.6301C403.812 16.3537 403.282 17.7459 402.214 18.8139C401.146 19.882 399.753 20.4123 398.03 20.4123H372.772V8.50158ZM402.759 38.7167C401.602 39.8953 400.254 40.4846 398.707 40.4846H372.764V28.235H398.707C400.247 28.235 401.595 28.8243 402.759 30.0028C403.915 31.1814 404.497 32.6325 404.497 34.3561C404.497 36.0797 403.915 37.5308 402.759 38.7094V38.7167Z" fill="#F8F6F4"/>
+        <path d="M307.562 39.1516H306.126L285.671 0.679138H274.231V48.3074H283.085V15.3079H284.441L302.178 48.3074H311.54L329.277 15.3079H330.64V48.3074H339.479V0.679138H328.025L307.562 39.1516Z" fill="#F8F6F4"/>
+        <path d="M215.228 0.679138L187.031 48.3148H197.638L203.642 38.1056H237.378L243.373 48.3148H253.98L225.784 0.679138H215.236H215.228ZM208.437 29.9367L219.64 10.881H221.386L232.575 29.9367H208.437Z" fill="#F8F6F4"/>
+        <path d="M461.818 0C443.02 0 434.041 9.95878 434.041 24.4918C434.041 39.0249 443.02 48.9836 461.818 48.9836C480.616 48.9836 489.595 39.0249 489.595 24.4918C489.595 9.95878 480.616 0 461.818 0ZM461.818 40.4833C449.539 40.4833 443.683 33.9792 443.683 24.4918C443.683 15.0045 449.546 8.50032 461.818 8.50032C474.09 8.50032 479.953 14.9971 479.953 24.4918C479.953 33.9865 474.09 40.4833 461.818 40.4833Z" fill="#F8F6F4"/>
+      </svg>
+    </a>
+    <a class="home" href="/waitlist">Back to early access</a>
   </div>
+
+  
+  <div class="eyebrow">Privacy</div>
+  <h1>Privacy policy</h1>
+  <div class="updated">Last updated 28 September 2026 · Version 2</div>
+
+  <p>AMBO ("AMBO", the "App", "we", "us") is a mobile app that records your boxing sessions on your phone, analyses your movement, and gives you feedback and drills. This policy covers the App, the amboapp.ai website and the AMBO early access list. It explains what personal data we collect, how we use it, and the choices you have.</p>
+
+  <div class="callout"><strong>The short version.</strong> The App records video and audio of you training and analyses your movement on your device. We upload that recording and the movement data from it to our cloud and use it to improve and train the models that power the App. Your account is identified by your email address. We don't ask for your name or phone number, we don't sell your data and we don't run ads. You can ask us to delete everything at any time.</div>
+
+  <h2>1. Who is responsible for your data</h2>
+  <p>AMBO is provided by Mathe Wieme, an individual based in the United Arab Emirates, who is the controller of the personal data described here. Questions or requests: <a href="mailto:support@amboapp.ai">support@amboapp.ai</a>.</p>
+
+  <h2>2. What we collect</h2>
+  <h3>Early access list (website)</h3>
+  <p>When you join early access on amboapp.ai we collect your email address, the campaign or referral tag in the link you used (for example a TikTok link), and basic email delivery data (whether our emails were delivered, opened or clicked). The website does not use advertising cookies or trackers.</p>
+  <h3>Session recordings (App)</h3>
+  <p>When you record a session, the App captures video and audio of you training using your device's camera and microphone. The audio includes the sound of your strikes, which helps the App detect and time your punches.</p>
+  <h3>Movement and analysis data</h3>
+  <p>From each recording the App derives body-position ("pose" or "skeleton") data, on-device analysis results (such as punch counts and form metrics) and, in guided sessions, a timeline of the drills and cues that were called out.</p>
+  <h3>Account and identifiers</h3>
+  <p>A login is required to use the App. You can sign in with Google, Apple, or an email address and password. However you sign in, we collect your email address and assign a user identifier so your data can be stored and synced across sessions and devices. We do not collect your name or phone number. If you sign in with Google or Apple, we receive your email address from that provider but never your password. If you use an email and password, the password is handled by our authentication provider and stored only in hashed form.</p>
+  <h3>Preferences and consent</h3>
+  <p>The App stores the preferences you choose during setup (such as your stance, experience and goal) and a record that you accepted this policy, including the date and version.</p>
+  <h3>Technical data</h3>
+  <p>Our service providers process standard technical information needed to operate the App and website, such as app version, device type, network requests and timestamps.</p>
+
+  <h2>3. How we use your data</h2>
+  <ul>
+    <li><strong>To run the App:</strong> recording sessions and analysing your movement. Most analysis happens on your device.</li>
+    <li><strong>To store and sync your sessions</strong> so they are available to you.</li>
+    <li><strong>To improve and train our machine-learning models.</strong> We use your uploaded recordings and the movement data derived from them to develop, evaluate and retrain the models that power AMBO's analysis and feedback.</li>
+    <li><strong>To run early access:</strong> confirming your spot, sending your launch offer and occasional updates about AMBO, and understanding which channels bring people in. This is based on your consent, which you can withdraw at any time by unsubscribing.</li>
+    <li><strong>To maintain, secure and debug</strong> the service.</li>
+  </ul>
+  <p>We do not use your data for third-party advertising, and we do not sell your personal data.</p>
+
+  <h2>4. On-device processing</h2>
+  <p>AMBO's movement analysis runs on your phone. Uploading your recordings and derived data to our cloud is what enables storage, sync and the model-improvement use described above.</p>
+
+  <h2>5. Who we share data with</h2>
+  <p>We use service providers to host and process data on our behalf:</p>
+  <ul>
+    <li><strong>Google Firebase</strong> (Authentication, Realtime Database, Cloud Storage) for App accounts and data, governed by <a href="https://policies.google.com/privacy" rel="noopener">Google's Privacy Policy</a>.</li>
+    <li><strong><a href="https://loops.so" rel="noopener">Loops</a></strong> to store the early access list and send our emails.</li>
+    <li><strong><a href="https://vercel.com" rel="noopener">Vercel</a></strong> to host the amboapp.ai website.</li>
+  </ul>
+  <p>We share data with service providers only as needed to run AMBO, and we may disclose data where required by law.</p>
+
+  <h2>6. International transfers</h2>
+  <p>We are based in the United Arab Emirates, and our service providers may store and process your data in other countries, including the United States. Where data is transferred internationally, we rely on our providers' safeguards for protecting it.</p>
+
+  <h2>7. How long we keep your data</h2>
+  <p>We keep App recordings and derived data for as long as needed to provide the App and to develop and improve our models, unless you ask us to delete them. We keep your early access email until you unsubscribe or ask us to delete it. If AMBO does not launch, we delete the list.</p>
+
+  <h2>8. Your rights and choices</h2>
+  <p>You can unsubscribe from emails with the link in any email. You can ask us to access, correct or delete your data, or to stop using it to improve our models, by emailing <a href="mailto:support@amboapp.ai">support@amboapp.ai</a>. Please contact us from the email address linked to your account or signup so we can find your data.</p>
+  <p>Depending on where you live, you may have additional rights under laws such as the UAE Personal Data Protection Law (Federal Decree-Law No. 45 of 2021), the EU/UK GDPR, or the California Consumer Privacy Act. We honour these rights where they apply to you. If you are in the EU or UK, you can also complain to your local data protection authority.</p>
+
+  <h2>9. Security</h2>
+  <p>We use reasonable technical and organisational measures, including the security features of our cloud providers, to protect your data. No method of transmission or storage is completely secure, so we cannot guarantee absolute security.</p>
+
+  <h2>10. Children</h2>
+  <p>AMBO is not directed to children under 16, and we do not knowingly collect data from them. If you believe a child has used AMBO, contact us and we will delete the data.</p>
+
+  <h2>11. Changes to this policy</h2>
+  <p>We may update this policy and will change the date at the top when we do. If we make a material change to how we handle App data, we will ask you to review and accept the updated policy in the App before you continue recording.</p>
+
+  <h2>12. Contact</h2>
+  <p>Mathe Wieme · United Arab Emirates · <a href="mailto:support@amboapp.ai">support@amboapp.ai</a></p>
+
+  <footer>AMBO · <a href="/privacy" style="color:var(--muted)">Privacy</a> · <a href="/terms" style="color:var(--muted)">Terms</a> · © 2026</footer>
+</div>
 </body>
 </html>
