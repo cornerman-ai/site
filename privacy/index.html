@@ -56,11 +56,11 @@ footer{margin-top:64px;font-size:11px;font-weight:500;text-transform:uppercase;c
   
   <div class="eyebrow">Privacy</div>
   <h1>Privacy policy</h1>
-  <div class="updated">Last updated 28 September 2026 · Version 2</div>
+  <div class="updated">Last updated 1 October 2026 · Version 3</div>
 
   <p>AMBO ("AMBO", the "App", "we", "us") is a mobile app that records your boxing sessions on your phone, analyses your movement, and gives you feedback and drills. This policy covers the App, the amboapp.ai website and the AMBO early access list. It explains what personal data we collect, how we use it, and the choices you have.</p>
 
-  <div class="callout"><strong>The short version.</strong> The App records video and audio of you training and analyses your movement on your device. We upload that recording and the movement data from it to our cloud and use it to improve and train the models that power the App. Your account is identified by your email address. We don't ask for your name or phone number, we don't sell your data and we don't run ads. You can ask us to delete everything at any time.</div>
+  <div class="callout"><strong>The short version.</strong> The App records video and audio of you training and analyses your movement on your device. We upload that recording and the movement data from it to our cloud and use it to improve and train the models that power the App. You sign in with Apple or Google, and your account is identified by the email address they share with us. Payments go through Apple, so we never see your card. We don't ask for your phone number, we don't sell your data and we don't run ads. You can delete your account in the App, or ask us to delete everything, at any time.</div>
 
   <h2>1. Who is responsible for your data</h2>
   <p>AMBO is provided by Mathe Wieme, an individual based in the United Arab Emirates, who is the controller of the personal data described here. Questions or requests: <a href="mailto:support@amboapp.ai">support@amboapp.ai</a>.</p>
@@ -73,9 +73,13 @@ footer{margin-top:64px;font-size:11px;font-weight:500;text-transform:uppercase;c
   <h3>Movement and analysis data</h3>
   <p>From each recording the App derives body-position ("pose" or "skeleton") data, on-device analysis results (such as punch counts and form metrics) and, in guided sessions, a timeline of the drills and cues that were called out.</p>
   <h3>Account and identifiers</h3>
-  <p>A login is required to use the App. You can sign in with Google, Apple, or an email address and password. However you sign in, we collect your email address and assign a user identifier so your data can be stored and synced across sessions and devices. We do not collect your name or phone number. If you sign in with Google or Apple, we receive your email address from that provider but never your password. If you use an email and password, the password is handled by our authentication provider and stored only in hashed form.</p>
+  <p>A login is required to use the App. You sign in with Apple or Google; we never receive your password. From that provider we receive your email address and, if you choose to share it, your name, and we assign a user identifier so your data can be stored and synced across sessions and devices. With Sign in with Apple you can hide your email, in which case we receive a private relay address from Apple instead. We do not collect your phone number.</p>
+  <h3>Subscriptions and purchases</h3>
+  <p>AMBO Premium is bought through the Apple App Store, and Apple processes the payment. We never receive your card or bank details. We receive information about your subscription, such as which plan you chose, whether you are in a free trial, renewal and expiry dates and transaction identifiers, so we can unlock Premium and help with billing questions.</p>
+  <h3>Reminders</h3>
+  <p>If you turn on training reminders and allow notifications, we store the days and time you choose and a notification token for your device so we can send them. You can change or turn off reminders in the App, or turn off notifications for AMBO in your iPhone's Settings.</p>
   <h3>Preferences and consent</h3>
-  <p>The App stores the preferences you choose during setup (such as your stance, experience and goal) and a record that you accepted this policy, including the date and version.</p>
+  <p>The App stores the answers and preferences you choose during setup and in Settings (such as your boxing experience, goal, how you want to box your assessment, sessions per week, stance and session settings) and a record that you accepted this policy, including the date and version. Your progress and settings are also kept on your phone so the App works offline.</p>
   <h3>Technical data</h3>
   <p>Our service providers process standard technical information needed to operate the App and website, such as app version, device type, network requests and timestamps.</p>
 
@@ -83,6 +87,8 @@ footer{margin-top:64px;font-size:11px;font-weight:500;text-transform:uppercase;c
   <ul>
     <li><strong>To run the App:</strong> recording sessions and analysing your movement. Most analysis happens on your device.</li>
     <li><strong>To store and sync your sessions</strong> so they are available to you.</li>
+    <li><strong>To manage your subscription:</strong> unlocking Premium, showing your trial and plan, and answering billing questions.</li>
+    <li><strong>To send the reminders you ask for.</strong></li>
     <li><strong>To improve and train our machine-learning models.</strong> We use your uploaded recordings and the movement data derived from them to develop, evaluate and retrain the models that power AMBO's analysis and feedback.</li>
     <li><strong>To run early access:</strong> confirming your spot, sending your launch offer and occasional updates about AMBO, and understanding which channels bring people in. This is based on your consent, which you can withdraw at any time by unsubscribing.</li>
     <li><strong>To maintain, secure and debug</strong> the service.</li>
@@ -97,6 +103,9 @@ footer{margin-top:64px;font-size:11px;font-weight:500;text-transform:uppercase;c
   <ul>
     <li><strong>Google Firebase</strong> (Authentication, Realtime Database, Cloud Storage) for App accounts and data, governed by <a href="https://policies.google.com/privacy" rel="noopener">Google's Privacy Policy</a>.</li>
     <li><strong><a href="https://loops.so" rel="noopener">Loops</a></strong> to store the early access list and send our emails.</li>
+    <li><strong>Apple</strong> for App Store purchases and subscriptions, Sign in with Apple and notifications, governed by <a href="https://www.apple.com/legal/privacy/" rel="noopener">Apple's Privacy Policy</a>.</li>
+    <li><strong>Google</strong> for Sign in with Google, governed by <a href="https://policies.google.com/privacy" rel="noopener">Google's Privacy Policy</a>.</li>
+    <li><strong><a href="https://expo.dev" rel="noopener">Expo</a></strong> to deliver App updates. When the App checks for an update, Expo receives technical data such as the app version, device type and IP address.</li>
     <li><strong><a href="https://vercel.com" rel="noopener">Vercel</a></strong> to host the amboapp.ai website.</li>
   </ul>
   <p>We share data with service providers only as needed to run AMBO, and we may disclose data where required by law.</p>
@@ -108,6 +117,7 @@ footer{margin-top:64px;font-size:11px;font-weight:500;text-transform:uppercase;c
   <p>We keep App recordings and derived data for as long as needed to provide the App and to develop and improve our models, unless you ask us to delete them. We keep your early access email until you unsubscribe or ask us to delete it. If AMBO does not launch, we delete the list.</p>
 
   <h2>8. Your rights and choices</h2>
+  <p>You can delete your account in the App (Settings, Delete account). We then delete your account and the data linked to it, except anything we must keep by law. Deleting your account does not cancel an App Store subscription; cancel it in your Apple ID settings.</p>
   <p>You can unsubscribe from emails with the link in any email. You can ask us to access, correct or delete your data, or to stop using it to improve our models, by emailing <a href="mailto:support@amboapp.ai">support@amboapp.ai</a>. Please contact us from the email address linked to your account or signup so we can find your data.</p>
   <p>Depending on where you live, you may have additional rights under laws such as the UAE Personal Data Protection Law (Federal Decree-Law No. 45 of 2021), the EU/UK GDPR, or the California Consumer Privacy Act. We honour these rights where they apply to you. If you are in the EU or UK, you can also complain to your local data protection authority.</p>
 
