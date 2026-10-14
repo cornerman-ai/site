@@ -78,9 +78,9 @@ button:disabled{opacity:.6;cursor:default}
 .is-done form,.is-done .note{display:none}
 .is-done .done{display:block}
 
-/* Visual: skeleton card now, product video later (swap the <svg> for a <video>) */
+/* Visual: the product video, 9:16 (1080 x 1920 master, 720 x 1280 here) */
 .visual{
-  position:relative; width:460px; height:640px; justify-self:end;
+  position:relative; width:380px; aspect-ratio:9/16; justify-self:end;
   border-radius:20px; overflow:hidden; border:1px solid #f8f6f414;
   background:radial-gradient(120% 80% at 50% 100%,#1e2a3a 0%,#191d22 45%,#101419 100%);
 }
@@ -116,7 +116,7 @@ footer div{display:flex;gap:20px}
   .page{padding:32px 40px}
   .hero{gap:48px}
   h1{font-size:52px;line-height:56px}
-  .visual{width:100%;max-width:420px;height:580px}
+  .visual{width:100%;max-width:340px}
 }
 
 /* Phone */
@@ -129,8 +129,8 @@ footer div{display:flex;gap:20px}
   .eyebrow{order:1}
   h1{order:2;margin-top:12px;font-size:40px;line-height:44px}
   .sub{order:3;margin-top:16px;font-size:17px;line-height:26px}
-  .visual{order:4;width:100%;max-width:none;height:190px;margin-top:20px;justify-self:auto}
-  .formwrap{order:5}
+  .formwrap{order:4}
+  .visual{order:5;width:100%;max-width:360px;margin:32px auto 0;justify-self:auto}
   form{flex-direction:column;margin-top:24px}
   button{width:100%}
   .note{text-align:center}
@@ -179,80 +179,8 @@ footer div{display:flex;gap:20px}
       </div>
     </div>
 
-    <!-- VIDEO SLOT: when the product video is ready, replace the two <svg>s, the .hud, the .tag and .card elements with:
-         <video src="ambo-waitlist.mp4" poster="ambo-waitlist.jpg" autoplay muted loop playsinline></video> -->
     <div class="visual" aria-hidden="true">
-      <!-- Desktop: full-body skeleton -->
-      <svg class="d-only" viewBox="0 0 460 640" preserveAspectRatio="xMidYMid slice">
-        <g stroke="#8098b7" stroke-width="1.5" stroke-dasharray="8 8" fill="none" stroke-linecap="round">
-          <line x1="238" y1="114" x2="240" y2="152"/><line x1="205" y1="155" x2="275" y2="150"/>
-          <line x1="205" y1="155" x2="210" y2="300"/><line x1="275" y1="150" x2="262" y2="298"/>
-          <line x1="210" y1="300" x2="262" y2="298"/><line x1="205" y1="155" x2="170" y2="225"/>
-          <line x1="170" y1="225" x2="205" y2="180"/><line x1="275" y1="150" x2="345" y2="130"/>
-          <line x1="345" y1="130" x2="415" y2="115"/><line x1="210" y1="300" x2="185" y2="400"/>
-          <line x1="185" y1="400" x2="172" y2="500"/><line x1="262" y1="298" x2="300" y2="395"/>
-          <line x1="300" y1="395" x2="330" y2="495"/>
-        </g>
-        <circle cx="238" cy="98" r="16" fill="none" stroke="#8098b7" stroke-width="1.5" stroke-dasharray="8 8"/>
-        <g fill="#f8f6f4" opacity="0.25">
-          <circle cx="205" cy="155" r="9"/><circle cx="275" cy="150" r="9"/><circle cx="170" cy="225" r="9"/><circle cx="205" cy="180" r="9"/>
-          <circle cx="345" cy="130" r="9"/><circle cx="415" cy="115" r="9"/><circle cx="185" cy="400" r="9"/><circle cx="300" cy="395" r="9"/>
-          <circle cx="172" cy="500" r="9"/><circle cx="330" cy="495" r="9"/>
-        </g>
-        <g fill="#f8f6f4">
-          <circle cx="238" cy="98" r="3"/><circle cx="205" cy="155" r="4"/><circle cx="275" cy="150" r="4"/><circle cx="170" cy="225" r="4"/>
-          <circle cx="205" cy="180" r="4"/><circle cx="345" cy="130" r="4"/><circle cx="415" cy="115" r="4"/><circle cx="185" cy="400" r="4"/>
-          <circle cx="300" cy="395" r="4"/><circle cx="172" cy="500" r="4"/><circle cx="330" cy="495" r="4"/>
-        </g>
-        <g fill="none" stroke="#f8f6f4" stroke-width="1" opacity="0.7">
-          <circle cx="205" cy="180" r="13"/><circle cx="172" cy="500" r="13"/><circle cx="330" cy="495" r="13"/>
-        </g>
-        <circle cx="210" cy="300" r="11" fill="#ca986d" opacity="0.3"/><circle cx="262" cy="298" r="11" fill="#ca986d" opacity="0.3"/>
-        <circle cx="210" cy="300" r="4.5" fill="#ca986d"/><circle cx="262" cy="298" r="4.5" fill="#ca986d"/>
-        <circle cx="210" cy="300" r="14" fill="none" stroke="#ca986d" stroke-width="1.5"/><circle cx="262" cy="298" r="14" fill="none" stroke="#ca986d" stroke-width="1.5"/>
-      </svg>
-
-      <!-- Phone: cropped head-to-hips strip -->
-      <svg class="m-only" viewBox="20 78 442 240" preserveAspectRatio="xMidYMid slice">
-        <g stroke="#8098b7" stroke-width="1.5" stroke-dasharray="8 8" fill="none" stroke-linecap="round">
-          <line x1="238" y1="114" x2="240" y2="152"/><line x1="205" y1="155" x2="275" y2="150"/>
-          <line x1="205" y1="155" x2="210" y2="300"/><line x1="275" y1="150" x2="262" y2="298"/>
-          <line x1="210" y1="300" x2="262" y2="298"/><line x1="205" y1="155" x2="170" y2="225"/>
-          <line x1="170" y1="225" x2="205" y2="180"/><line x1="275" y1="150" x2="345" y2="130"/>
-          <line x1="345" y1="130" x2="415" y2="115"/>
-        </g>
-        <circle cx="238" cy="98" r="16" fill="none" stroke="#8098b7" stroke-width="1.5" stroke-dasharray="8 8"/>
-        <g fill="#f8f6f4" opacity="0.25">
-          <circle cx="205" cy="155" r="9"/><circle cx="275" cy="150" r="9"/><circle cx="170" cy="225" r="9"/><circle cx="205" cy="180" r="9"/><circle cx="415" cy="115" r="9"/>
-        </g>
-        <g fill="#f8f6f4">
-          <circle cx="238" cy="98" r="3"/><circle cx="205" cy="155" r="4"/><circle cx="275" cy="150" r="4"/><circle cx="170" cy="225" r="4"/><circle cx="205" cy="180" r="4"/><circle cx="415" cy="115" r="4"/>
-        </g>
-        <circle cx="205" cy="180" r="13" fill="none" stroke="#f8f6f4" stroke-width="1" opacity="0.7"/>
-        <circle cx="210" cy="300" r="11" fill="#ca986d" opacity="0.3"/><circle cx="262" cy="298" r="11" fill="#ca986d" opacity="0.3"/><circle cx="345" cy="130" r="11" fill="#ca986d" opacity="0.3"/>
-        <circle cx="210" cy="300" r="4.5" fill="#ca986d"/><circle cx="262" cy="298" r="4.5" fill="#ca986d"/><circle cx="345" cy="130" r="4.5" fill="#ca986d"/>
-        <circle cx="210" cy="300" r="14" fill="none" stroke="#ca986d" stroke-width="1.5"/><circle cx="262" cy="298" r="14" fill="none" stroke="#ca986d" stroke-width="1.5"/><circle cx="345" cy="130" r="14" fill="none" stroke="#ca986d" stroke-width="1.5"/>
-      </svg>
-
-      <!-- Desktop overlays -->
-      <div class="hud d-only">
-        <span style="color:var(--bronze)">Assessment</span><span class="dot"></span>
-        <span style="color:var(--muted)">Round 1</span><span class="dot"></span>
-        <span>0:47</span>
-      </div>
-      <div class="tag d-only" style="left:36px;top:168px"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="#8098b7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.5l2.5 2.5 4.5-5"/></svg><span>Guard held</span></div>
-      <div class="tag d-only" style="left:36px;top:486px"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="#8098b7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.5l2.5 2.5 4.5-5"/></svg><span>Stance width</span></div>
-      <div class="tag flag d-only" style="left:296px;top:288px"><i></i><span>Hip rotation</span></div>
-      <div class="card d-only">
-        <div class="k">Next thing to work on</div>
-        <div class="h">Turn your hips more on the cross.</div>
-        <div class="s">On most crosses, the punch comes from the arm.</div>
-      </div>
-
-      <!-- Phone overlays -->
-      <div class="tag m-only" style="left:14px;top:40px"><span style="display:flex;align-items:center;gap:8px"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="#8098b7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.5l2.5 2.5 4.5-5"/></svg>Guard held</span></div>
-      <div class="tag flag m-only" style="right:14px;top:66px"><span style="display:flex;align-items:center;gap:8px"><i></i>Elbow tuck</span></div>
-      <div class="tag flag m-only" style="right:40px;top:152px"><span style="display:flex;align-items:center;gap:8px"><i></i>Hip rotation</span></div>
+      <video src="ambo-waitlist.mp4" poster="ambo-waitlist.jpg" autoplay muted loop playsinline preload="auto"></video>
     </div>
   </main>
 

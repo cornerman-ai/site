@@ -9,12 +9,10 @@ AMBO website (formerly the corner-man.ai site). Static site on Vercel.
 
 Signups land in Loops with `userGroup = waitlist` and `source = waitlist` or `waitlist/<utm_source>` (e.g. `amboapp.ai/waitlist?utm_source=tiktok`).
 
-## Adding the video
-Put `ambo-waitlist.mp4` (+ a poster `.jpg`) in `waitlist/`, then in `waitlist/index.html` replace the contents of `<div class="visual">` with:
-
-```html
-<video src="ambo-waitlist.mp4" poster="ambo-waitlist.jpg" autoplay muted loop playsinline></video>
-```
+## The video
+`waitlist/ambo-waitlist.mp4` (720 x 1280, about 4 MB, muted autoplay loop) with its poster `ambo-waitlist.jpg`, in the
+9:16 `.visual` card: beside the copy on desktop, under the signup form on phones. It is a work-in-progress cut of the
+demo video (made in the backend repo's demo tools); to replace it, overwrite both files with the same names.
 
 ## corner-man.ai
 `CNAME` keeps GitHub Pages serving corner-man.ai until that domain is moved to Vercel (then delete `CNAME` and turn off Pages).
