@@ -125,14 +125,15 @@ footer div{display:flex;gap:20px}
   .logo{height:32px;justify-content:center}
   .logo svg{width:108px}
   /* Phone: headline, the 1:1 video, the form, all above the fold (393 x 650), centred; no eyebrow or sub-line */
-  .hero{display:flex;flex-direction:column;align-items:stretch;gap:0;margin:16px 0 32px}
+  /* the stack sits centred between the logo and the footer; its gaps grow with the screen's height */
+  .hero{display:flex;flex-direction:column;align-items:stretch;gap:0;margin:auto 0;padding:16px 0}
   .copy{max-width:none;display:contents}
   .eyebrow{display:none}
   h1{order:2;margin-top:0;font-size:34px;line-height:38px;text-align:center}
-  .visual{order:3;width:100%;max-width:none;aspect-ratio:1/1;margin:16px 0 0;justify-self:auto;border-radius:16px}
+  .visual{order:3;width:100%;max-width:none;aspect-ratio:1/1;margin:clamp(16px,calc(6svh - 20px),40px) 0 0;justify-self:auto;border-radius:16px}
   .formwrap{order:4}
   .sub{display:none}
-  form{flex-direction:column;gap:8px;margin-top:16px}
+  form{flex-direction:column;gap:8px;margin-top:clamp(16px,calc(6svh - 20px),40px)}
   input[type=email], button{height:52px}
   button{width:100%}
   .note{text-align:center}
@@ -141,6 +142,7 @@ footer div{display:flex;gap:20px}
   .d-only{display:none}
   .m-only, .visual > svg.m-only{display:block}
   .visual > svg.d-only{display:none}
+  footer{margin-top:24px}
   footer div{gap:16px}
 }
 </style>
