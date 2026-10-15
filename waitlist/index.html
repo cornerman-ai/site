@@ -124,14 +124,14 @@ footer div{display:flex;gap:20px}
   .page{padding:24px 20px 28px;padding-bottom:max(28px,env(safe-area-inset-bottom))}
   .logo{height:32px}
   .logo svg{width:108px}
-  /* Phone: headline, the 1:1 video, the form above the fold (393 x 650); the sub-line under them */
+  /* Phone: headline, the 1:1 video, the form, all above the fold (393 x 650); no eyebrow or sub-line */
   .hero{display:flex;flex-direction:column;align-items:stretch;gap:0;margin:16px 0 32px}
   .copy{max-width:none;display:contents}
   .eyebrow{display:none}
   h1{order:2;margin-top:0;font-size:34px;line-height:38px}
   .visual{order:3;width:100%;max-width:none;aspect-ratio:1/1;margin:16px 0 0;justify-self:auto;border-radius:16px}
   .formwrap{order:4}
-  .sub{order:5;margin-top:28px;font-size:16px;line-height:24px}
+  .sub{display:none}
   form{flex-direction:column;gap:8px;margin-top:16px}
   input[type=email], button{height:52px}
   button{width:100%}
@@ -163,7 +163,7 @@ footer div{display:flex;gap:20px}
   <main class="hero">
     <div class="copy">
       <div class="eyebrow">Early access</div>
-      <h1>Get coached every round.</h1>
+      <h1><span class="d-only">Get coached every round.</span><span class="m-only">Get early access.</span></h1>
       <p class="sub">Shadowbox one round in front of your phone. <b>AMBO</b> finds what to fix and gives you the drill.</p>
 
       <div class="formwrap" id="formwrap">
