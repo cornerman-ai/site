@@ -86,6 +86,10 @@ button:disabled{opacity:.6;cursor:default}
 }
 .visual > svg, .visual > video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .visual > svg.m-only{display:none}
+/* the video covers the skeleton visual once it plays; until then, or if it never does (autoplay off, Low Power Mode,
+   a failed load), the skeleton visual shows */
+.visual > video{opacity:0;transition:opacity .35s ease-out}
+.visual > video.on{opacity:1}
 .hud{position:absolute;left:24px;top:20px;display:flex;gap:10px;align-items:center;font-size:11px;line-height:14px;font-weight:500;text-transform:uppercase}
 .dot{width:3px;height:3px;background:var(--muted);display:inline-block}
 .tag{
@@ -186,17 +190,99 @@ footer div{display:flex;gap:20px}
     </div>
 
     <div class="visual" aria-hidden="true">
-      <video id="demo" autoplay muted loop playsinline preload="auto"></video>
+      <!-- Shown until the video plays, and instead of it when it can't (the visual from before the video) -->
+      <!-- Desktop: full-body skeleton in the 9:16 card -->
+      <svg class="d-only" viewBox="60 -20 400 711" preserveAspectRatio="xMidYMid slice">
+        <g stroke="#8098b7" stroke-width="1.5" stroke-dasharray="8 8" fill="none" stroke-linecap="round">
+          <line x1="238" y1="114" x2="240" y2="152"/><line x1="205" y1="155" x2="275" y2="150"/>
+          <line x1="205" y1="155" x2="210" y2="300"/><line x1="275" y1="150" x2="262" y2="298"/>
+          <line x1="210" y1="300" x2="262" y2="298"/><line x1="205" y1="155" x2="170" y2="225"/>
+          <line x1="170" y1="225" x2="205" y2="180"/><line x1="275" y1="150" x2="345" y2="130"/>
+          <line x1="345" y1="130" x2="415" y2="115"/><line x1="210" y1="300" x2="185" y2="400"/>
+          <line x1="185" y1="400" x2="172" y2="500"/><line x1="262" y1="298" x2="300" y2="395"/>
+          <line x1="300" y1="395" x2="330" y2="495"/>
+        </g>
+        <circle cx="238" cy="98" r="16" fill="none" stroke="#8098b7" stroke-width="1.5" stroke-dasharray="8 8"/>
+        <g fill="#f8f6f4" opacity="0.25">
+          <circle cx="205" cy="155" r="9"/><circle cx="275" cy="150" r="9"/><circle cx="170" cy="225" r="9"/><circle cx="205" cy="180" r="9"/>
+          <circle cx="345" cy="130" r="9"/><circle cx="415" cy="115" r="9"/><circle cx="185" cy="400" r="9"/><circle cx="300" cy="395" r="9"/>
+          <circle cx="172" cy="500" r="9"/><circle cx="330" cy="495" r="9"/>
+        </g>
+        <g fill="#f8f6f4">
+          <circle cx="238" cy="98" r="3"/><circle cx="205" cy="155" r="4"/><circle cx="275" cy="150" r="4"/><circle cx="170" cy="225" r="4"/>
+          <circle cx="205" cy="180" r="4"/><circle cx="345" cy="130" r="4"/><circle cx="415" cy="115" r="4"/><circle cx="185" cy="400" r="4"/>
+          <circle cx="300" cy="395" r="4"/><circle cx="172" cy="500" r="4"/><circle cx="330" cy="495" r="4"/>
+        </g>
+        <g fill="none" stroke="#f8f6f4" stroke-width="1" opacity="0.7">
+          <circle cx="205" cy="180" r="13"/><circle cx="172" cy="500" r="13"/><circle cx="330" cy="495" r="13"/>
+        </g>
+        <circle cx="210" cy="300" r="11" fill="#ca986d" opacity="0.3"/><circle cx="262" cy="298" r="11" fill="#ca986d" opacity="0.3"/>
+        <circle cx="210" cy="300" r="4.5" fill="#ca986d"/><circle cx="262" cy="298" r="4.5" fill="#ca986d"/>
+        <circle cx="210" cy="300" r="14" fill="none" stroke="#ca986d" stroke-width="1.5"/><circle cx="262" cy="298" r="14" fill="none" stroke="#ca986d" stroke-width="1.5"/>
+      </svg>
+      <!-- Phone: the same skeleton in the square -->
+      <svg class="m-only" viewBox="62 52 460 460" preserveAspectRatio="xMidYMid slice">
+        <g stroke="#8098b7" stroke-width="1.5" stroke-dasharray="8 8" fill="none" stroke-linecap="round">
+          <line x1="238" y1="114" x2="240" y2="152"/><line x1="205" y1="155" x2="275" y2="150"/>
+          <line x1="205" y1="155" x2="210" y2="300"/><line x1="275" y1="150" x2="262" y2="298"/>
+          <line x1="210" y1="300" x2="262" y2="298"/><line x1="205" y1="155" x2="170" y2="225"/>
+          <line x1="170" y1="225" x2="205" y2="180"/><line x1="275" y1="150" x2="345" y2="130"/>
+          <line x1="345" y1="130" x2="415" y2="115"/><line x1="210" y1="300" x2="185" y2="400"/>
+          <line x1="185" y1="400" x2="172" y2="500"/><line x1="262" y1="298" x2="300" y2="395"/>
+          <line x1="300" y1="395" x2="330" y2="495"/>
+        </g>
+        <circle cx="238" cy="98" r="16" fill="none" stroke="#8098b7" stroke-width="1.5" stroke-dasharray="8 8"/>
+        <g fill="#f8f6f4" opacity="0.25">
+          <circle cx="205" cy="155" r="9"/><circle cx="275" cy="150" r="9"/><circle cx="170" cy="225" r="9"/><circle cx="205" cy="180" r="9"/>
+          <circle cx="345" cy="130" r="9"/><circle cx="415" cy="115" r="9"/><circle cx="185" cy="400" r="9"/><circle cx="300" cy="395" r="9"/>
+          <circle cx="172" cy="500" r="9"/><circle cx="330" cy="495" r="9"/>
+        </g>
+        <g fill="#f8f6f4">
+          <circle cx="238" cy="98" r="3"/><circle cx="205" cy="155" r="4"/><circle cx="275" cy="150" r="4"/><circle cx="170" cy="225" r="4"/>
+          <circle cx="205" cy="180" r="4"/><circle cx="345" cy="130" r="4"/><circle cx="415" cy="115" r="4"/><circle cx="185" cy="400" r="4"/>
+          <circle cx="300" cy="395" r="4"/><circle cx="172" cy="500" r="4"/><circle cx="330" cy="495" r="4"/>
+        </g>
+        <circle cx="205" cy="180" r="13" fill="none" stroke="#f8f6f4" stroke-width="1" opacity="0.7"/>
+        <circle cx="210" cy="300" r="11" fill="#ca986d" opacity="0.3"/><circle cx="262" cy="298" r="11" fill="#ca986d" opacity="0.3"/><circle cx="345" cy="130" r="11" fill="#ca986d" opacity="0.3"/>
+        <circle cx="210" cy="300" r="4.5" fill="#ca986d"/><circle cx="262" cy="298" r="4.5" fill="#ca986d"/><circle cx="345" cy="130" r="4.5" fill="#ca986d"/>
+        <circle cx="210" cy="300" r="14" fill="none" stroke="#ca986d" stroke-width="1.5"/><circle cx="262" cy="298" r="14" fill="none" stroke="#ca986d" stroke-width="1.5"/><circle cx="345" cy="130" r="14" fill="none" stroke="#ca986d" stroke-width="1.5"/>
+      </svg>
+      <div class="hud d-only">
+        <span style="color:var(--bronze)">Assessment</span><span class="dot"></span>
+        <span style="color:var(--muted)">Round 1</span><span class="dot"></span>
+        <span>0:47</span>
+      </div>
+      <div class="tag d-only" style="left:24px;top:206px"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="#8098b7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.5l2.5 2.5 4.5-5"/></svg><span>Guard held</span></div>
+      <div class="tag d-only" style="left:24px;top:478px"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="#8098b7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.5l2.5 2.5 4.5-5"/></svg><span>Stance width</span></div>
+      <div class="tag flag d-only" style="right:24px;top:318px"><i></i><span>Hip rotation</span></div>
+      <div class="card d-only">
+        <div class="k">Next thing to work on</div>
+        <div class="h">Turn your hips more on the cross.</div>
+        <div class="s">On most crosses, the punch comes from the arm.</div>
+      </div>
+      <div class="tag m-only" style="left:14px;top:150px"><span style="display:flex;align-items:center;gap:8px"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="#8098b7" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.5l2.5 2.5 4.5-5"/></svg>Guard held</span></div>
+      <div class="tag flag m-only" style="right:14px;top:24px"><span style="display:flex;align-items:center;gap:8px"><i></i>Elbow tuck</span></div>
+      <div class="tag flag m-only" style="right:14px;top:200px"><span style="display:flex;align-items:center;gap:8px"><i></i>Hip rotation</span></div>
+
+      <!-- The video, over the visual: phones get the 1:1 cut, wider screens the 9:16; absolute paths (the page is
+           served at /waitlist, without a trailing slash, so a relative path points at the site's root) -->
+      <video id="demo" autoplay muted loop playsinline preload="auto" disableremoteplayback>
+        <source src="/waitlist/ambo-waitlist-square.mp4" type="video/mp4" media="(max-width:820px)">
+        <source src="/waitlist/ambo-waitlist.mp4" type="video/mp4">
+      </video>
     </div>
     <script>
-    // Phones get the 1:1 cut (captions beside the phone), wider screens the 9:16 one
+    // The video fades in over the visual once it actually plays; if it never does, the visual stays
     (function(){
-      var v = document.getElementById('demo'), sq = matchMedia('(max-width:820px)').matches;
+      var v = document.getElementById('demo');
+      function on(){ v.classList.add('on'); }
       v.muted = true;
-      v.poster = sq ? 'ambo-waitlist-square.jpg' : 'ambo-waitlist.jpg';
-      v.src = sq ? 'ambo-waitlist-square.mp4' : 'ambo-waitlist.mp4';
+      v.addEventListener('playing', on);
+      if (v.readyState > 2 && !v.paused) on();
+      var p = v.play && v.play(); if (p && p.catch) p.catch(function(){});
     })();
     </script>
+    <noscript><style>.visual > video{opacity:1}</style></noscript>
   </main>
 
   <footer>
