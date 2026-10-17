@@ -151,7 +151,17 @@ footer div{display:flex;gap:20px}
   footer div{gap:16px}
 }
 </style>
-<script defer src="/_vercel/insights/script.js"></script>
+<!-- PostHog (EU, cookieless: nothing stored on the visitor's device, visitors counted by a daily hash on PostHog's
+     servers; needs "Cookieless server hash mode" on in the project's settings). The loader is PostHog's own snippet. -->
+<script>
+    !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],Object.defineProperty(u,"toString",{configurable:!0,enumerable:!0,writable:!0,value:function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e}}),Object.defineProperty(u.people,"toString",{configurable:!0,enumerable:!0,writable:!0,value:function(){return u.toString(1)+".people (stub)"}}),o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagResult isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey getNextSurveyStep identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+    posthog.init('PH_PROJECT_KEY', {
+        api_host: 'https://eu.i.posthog.com',
+        defaults: '2026-05-30',
+        cookieless_mode: 'always',
+        person_profiles: 'never',
+    })
+</script>
 </head>
 <body>
 <div class="page">
@@ -284,16 +294,15 @@ footer div{display:flex;gap:20px}
       // a click pauses it, another plays it again
       v.addEventListener('click', function(){ if (v.paused) v.play(); else v.pause(); });
 
-      // How far each visitor watches the first loop: a Vercel Analytics custom event 'Video' with reached = start,
-      // 25%, 50%, 75%, end (the end is seen as the time wrapping back to 0, since the video loops)
-      window.va = window.va || function(){ (window.vaq = window.vaq || []).push(arguments); };
+      // How far each visitor watches the first loop: a PostHog event 'video progress' with reached = start, 25%, 50%,
+      // 75%, end (the end is seen as the time wrapping back to 0, since the video loops)
       var marks = [0, 25, 50, 75], labels = ['start', '25%', '50%', '75%'], sent = 0, last = 0;
       v.addEventListener('timeupdate', function(){
         var t = v.currentTime;
         if (sent < marks.length && t > 0 && v.duration && t / v.duration * 100 >= marks[sent]) {
-          window.va('event', { name: 'Video', data: { reached: labels[sent++] } });
+          posthog.capture('video progress', { reached: labels[sent++] });
         } else if (sent === marks.length && t < last) {
-          window.va('event', { name: 'Video', data: { reached: 'end' } }); sent++;
+          posthog.capture('video progress', { reached: 'end' }); sent++;
         }
         last = t;
       });
@@ -344,7 +353,11 @@ footer div{display:flex;gap:20px}
     if (!ENDPOINT) { console.warn('[AMBO] No ENDPOINT set; signup not stored', payload); wrap.classList.add('is-done'); return; }
 
     fetch(ENDPOINT, { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(payload) })
-      .then(function(r){ if(!r.ok) throw new Error(r.status); wrap.classList.add('is-done'); })
+      .then(function(r){
+        if(!r.ok) throw new Error(r.status);
+        wrap.classList.add('is-done');
+        posthog.capture('waitlist signup', payload.utm); // the count and its link's tags, never the email
+      })
       .catch(function(){
         btn.disabled = false; btn.textContent = 'Get my free month';
         note.textContent = 'Something went wrong. Try again in a moment.'; note.classList.add('err');

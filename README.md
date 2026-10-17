@@ -6,7 +6,7 @@ AMBO website (formerly the corner-man.ai site). Static site on Vercel.
 - `/privacy` privacy policy (App + website + early access list).
 - `/terms` terms of use for the App.
 - `/api/waitlist` adds signups to Loops (`api/waitlist.js`). Needs `LOOPS_API_KEY` set in Vercel.
-- Visits are counted by Vercel Web Analytics (no cookies): the `/_vercel/insights/script.js` tag in each page's `<head>`, seen in the Vercel project's Analytics tab (it must be enabled there). The waitlist video sends a custom event `Video` with `reached` = start / 25% / 50% / 75% / end for its first loop (custom events need Vercel Pro).
+- Visits, the video and signups are measured by PostHog (EU, cookieless) on `/waitlist` only: its snippet in the page's `<head>` (`PH_PROJECT_KEY` = the project's public key; the project needs *Cookieless server hash mode* on). Events: `video progress` (`reached` = start / 25% / 50% / 75% / end of the first loop) and `waitlist signup` (the link's utm tags, never the email). Cookieless means no countries, no session replay, and a visitor is a new visitor each day.
 
 Signups land in Loops with `userGroup = waitlist` and `source = waitlist` or `waitlist/<utm_source>` (e.g. `amboapp.ai/waitlist?utm_source=tiktok`).
 Short links for bios and posts redirect to those (`vercel.json`): `/waitlist/yt` → youtube, `/waitlist/tt` → tiktok, `/waitlist/ig` → instagram. A new one is one more line there.
