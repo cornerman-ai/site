@@ -89,7 +89,7 @@ button:disabled{opacity:.6;cursor:default}
 /* the video covers the skeleton visual once it plays; until then, or if it never does (autoplay off, Low Power Mode,
    a failed load), the skeleton visual shows */
 .visual > video{opacity:0;transition:opacity .35s ease-out}
-.visual > video.on{opacity:1}
+.visual > video.on{opacity:1;cursor:pointer}
 .hud{position:absolute;left:24px;top:20px;display:flex;gap:10px;align-items:center;font-size:11px;line-height:14px;font-weight:500;text-transform:uppercase}
 .dot{width:3px;height:3px;background:var(--muted);display:inline-block}
 .tag{
@@ -281,6 +281,22 @@ footer div{display:flex;gap:20px}
       v.addEventListener('playing', on);
       if (v.readyState > 2 && !v.paused) on();
       var p = v.play && v.play(); if (p && p.catch) p.catch(function(){});
+      // a click pauses it, another plays it again
+      v.addEventListener('click', function(){ if (v.paused) v.play(); else v.pause(); });
+
+      // How far each visitor watches the first loop: a Vercel Analytics custom event 'Video' with reached = start,
+      // 25%, 50%, 75%, end (the end is seen as the time wrapping back to 0, since the video loops)
+      window.va = window.va || function(){ (window.vaq = window.vaq || []).push(arguments); };
+      var marks = [0, 25, 50, 75], labels = ['start', '25%', '50%', '75%'], sent = 0, last = 0;
+      v.addEventListener('timeupdate', function(){
+        var t = v.currentTime;
+        if (sent < marks.length && t > 0 && v.duration && t / v.duration * 100 >= marks[sent]) {
+          window.va('event', { name: 'Video', data: { reached: labels[sent++] } });
+        } else if (sent === marks.length && t < last) {
+          window.va('event', { name: 'Video', data: { reached: 'end' } }); sent++;
+        }
+        last = t;
+      });
     })();
     </script>
     <noscript><style>.visual > video{opacity:1}</style></noscript>
