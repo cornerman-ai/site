@@ -5,7 +5,9 @@
     { "source": "/", "destination": "/waitlist", "permanent": false },
     { "source": "/waitlist/yt", "destination": "/waitlist?utm_source=youtube", "permanent": false },
     { "source": "/waitlist/tt", "destination": "/waitlist?utm_source=tiktok", "permanent": false },
-    { "source": "/waitlist/ig", "destination": "/waitlist?utm_source=instagram", "permanent": false }
+    { "source": "/waitlist/ig", "destination": "/waitlist?utm_source=instagram", "permanent": false },
+    { "source": "/waitlist/off", "destination": "/waitlist?track=off", "permanent": false },
+    { "source": "/waitlist/on", "destination": "/waitlist?track=on", "permanent": false }
   ],
   "headers": [
     {
