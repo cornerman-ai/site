@@ -3,6 +3,7 @@
 AMBO website (formerly the corner-man.ai site). Static site on Vercel.
 
 - `/waitlist` early access page (`waitlist/index.html`). `/` redirects here for now.
+- `/challenge` the AMBO challenge page (`challenge/index.html`): email, then "Now get your score" with the steps and the way to the app (a Download button on phones, a QR code on desktop). Signups go to the same Loops list as the waitlist with `source = challenge` or `challenge/<utm_source>`; short links `/challenge/tt`, `/challenge/ig`, `/challenge/yt`. Not linked anywhere until the challenge build is in the App Store: then set `APP_URL` in the page's script and add `challenge/qr.svg` (a QR code of that link).
 - `/privacy` privacy policy (App + website + early access list).
 - `/terms` terms of use for the App.
 - `/api/waitlist` adds signups to Loops (`api/waitlist.js`). Needs `LOOPS_API_KEY` set in Vercel.

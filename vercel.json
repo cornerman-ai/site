@@ -7,7 +7,10 @@
     { "source": "/waitlist/tt", "destination": "/waitlist?utm_source=tiktok", "permanent": false },
     { "source": "/waitlist/ig", "destination": "/waitlist?utm_source=instagram", "permanent": false },
     { "source": "/waitlist/off", "destination": "/waitlist?track=off", "permanent": false },
-    { "source": "/waitlist/on", "destination": "/waitlist?track=on", "permanent": false }
+    { "source": "/waitlist/on", "destination": "/waitlist?track=on", "permanent": false },
+    { "source": "/challenge/yt", "destination": "/challenge?utm_source=youtube", "permanent": false },
+    { "source": "/challenge/tt", "destination": "/challenge?utm_source=tiktok", "permanent": false },
+    { "source": "/challenge/ig", "destination": "/challenge?utm_source=instagram", "permanent": false }
   ],
   "headers": [
     {
