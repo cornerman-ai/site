@@ -325,11 +325,18 @@ html.notrack .notrack-note{display:block}
   var btn = document.getElementById('submit');
   var defaultNote = note.textContent;
 
-  function utm(){
+  // The link's tags (from a short link like /challenge/tt), read once; then the address bar goes back to a clean
+  // /challenge, so a copied link doesn't carry them to someone else. PostHog keeps them on this visit's events.
+  var tags = (function(){
     var p = new URLSearchParams(location.search), o = {};
     ['utm_source','utm_medium','utm_campaign','utm_content','ref'].forEach(function(k){ if(p.get(k)) o[k]=p.get(k); });
     return o;
+  })();
+  if (Object.keys(tags).length) {
+    if (window.posthog && posthog.register) posthog.register(tags); // not set up on our own devices (/waitlist/off)
+    try { history.replaceState(null, '', location.pathname + location.hash); } catch (e) {}
   }
+  function utm(){ return tags; }
   function done(){ page.classList.add('is-done'); window.scrollTo(0, 0); }
 
   form.addEventListener('submit', function(e){
@@ -347,7 +354,7 @@ html.notrack .notrack-note{display:block}
       .then(function(r){
         if(!r.ok) throw new Error(r.status);
         done();
-        if (window.posthog) posthog.capture('challenge signup', payload.utm); // the count and its link's tags, never the email
+        if (window.posthog && posthog.capture) posthog.capture('challenge signup', payload.utm); // the count and its link's tags, never the email
       })
       .catch(function(){
         btn.disabled = false; btn.textContent = 'Get my score';
