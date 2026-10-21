@@ -347,11 +347,18 @@ html.notrack .notrack-note{display:block}
   var btn = document.getElementById('submit');
   var defaultNote = note.textContent;
 
-  function utm(){
+  // The link's tags (from a short link like /waitlist/tt), read once; then the address bar goes back to a clean
+  // /waitlist, so a copied link doesn't carry them to someone else. PostHog keeps them on this visit's events.
+  var tags = (function(){
     var p = new URLSearchParams(location.search), o = {};
     ['utm_source','utm_medium','utm_campaign','utm_content','ref'].forEach(function(k){ if(p.get(k)) o[k]=p.get(k); });
     return o;
+  })();
+  if (Object.keys(tags).length) {
+    if (window.posthog && posthog.register) posthog.register(tags); // not set up on our own devices (/waitlist/off)
   }
+  if (location.search) { try { history.replaceState(null, '', location.pathname + location.hash); } catch (e) {} }
+  function utm(){ return tags; }
 
   form.addEventListener('submit', function(e){
     e.preventDefault();
