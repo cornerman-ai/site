@@ -79,8 +79,11 @@ button:disabled{opacity:.6;cursor:default}
 .is-done .done{display:block}
 
 /* Visual: the product video, 9:16 (1080 x 1920 master, 720 x 1280 here); 1:1 on phones (720 x 720) */
+/* 380 x 676 at most; on shorter windows it shrinks so the page fits the screen (234px = the page's padding, the logo,
+   the hero's margins and the footer) */
 .visual{
-  position:relative; width:380px; aspect-ratio:9/16; justify-self:end;
+  position:relative; height:clamp(420px,calc(100vh - 234px),676px); height:clamp(420px,calc(100dvh - 234px),676px);
+  aspect-ratio:9/16; justify-self:end;
   border-radius:20px; overflow:hidden; border:1px solid #f8f6f414;
   background:radial-gradient(120% 80% at 50% 100%,#1e2a3a 0%,#191d22 45%,#101419 100%);
 }
@@ -123,7 +126,7 @@ html.notrack .notrack-note{display:block}
   .page{padding:32px 40px}
   .hero{gap:48px}
   h1{font-size:52px;line-height:56px}
-  .visual{width:100%;max-width:340px}
+  .visual{height:clamp(420px,calc(100vh - 222px),604px);height:clamp(420px,calc(100dvh - 222px),604px)}
 }
 
 /* Phone */
@@ -138,7 +141,7 @@ html.notrack .notrack-note{display:block}
   .eyebrow{display:none}
   h1 .m-only{text-transform:uppercase}
   h1{order:2;margin-top:0;font-size:34px;line-height:38px;text-align:center}
-  .visual{order:3;width:100%;max-width:none;aspect-ratio:1/1;margin:clamp(16px,calc(6svh - 20px),40px) 0 0;justify-self:auto;border-radius:16px}
+  .visual{order:3;width:100%;height:auto;max-width:none;aspect-ratio:1/1;margin:clamp(16px,calc(6svh - 20px),40px) 0 0;justify-self:auto;border-radius:16px}
   .formwrap{order:4}
   .sub{display:none}
   form{flex-direction:column;gap:8px;margin-top:clamp(16px,calc(6svh - 20px),40px)}
