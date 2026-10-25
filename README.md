@@ -11,6 +11,7 @@ AMBO website (formerly the corner-man.ai site). Static site on Vercel.
 
 Signups land in Loops with `userGroup = waitlist` and `source = waitlist` or `waitlist/<utm_source>` (e.g. `amboapp.ai/waitlist?utm_source=tiktok`).
 Short links for bios and posts redirect to those (`vercel.json`): `/waitlist/yt` → youtube, `/waitlist/tt` → tiktok, `/waitlist/ig` → instagram. A new one is one more line there.
+Per-account bio links (one per platform and content style, listed in the Accounts sheet): `/<ig|tt|yt>/<2d|bm|sa|sv>`, e.g. `/ig/2d` → `/waitlist?utm_source=instagram&utm_medium=bio&utm_campaign=2d-explainer` (`bm` = boxmaxxing, `sa` = saad, `sv` = saad-variation). Loops only keeps the platform (`waitlist/instagram`); the style is in PostHog's `utm_campaign`.
 
 ## The video
 `waitlist/ambo-waitlist.mp4` (720 x 1280, about 4 MB, muted autoplay loop) with its poster `ambo-waitlist.jpg`, in the

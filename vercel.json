@@ -10,7 +10,19 @@
     { "source": "/waitlist/on", "destination": "/waitlist?track=on", "permanent": false },
     { "source": "/challenge/yt", "destination": "/challenge?utm_source=youtube", "permanent": false },
     { "source": "/challenge/tt", "destination": "/challenge?utm_source=tiktok", "permanent": false },
-    { "source": "/challenge/ig", "destination": "/challenge?utm_source=instagram", "permanent": false }
+    { "source": "/challenge/ig", "destination": "/challenge?utm_source=instagram", "permanent": false },
+    { "source": "/ig/2d", "destination": "/waitlist?utm_source=instagram&utm_medium=bio&utm_campaign=2d-explainer", "permanent": false },
+    { "source": "/ig/bm", "destination": "/waitlist?utm_source=instagram&utm_medium=bio&utm_campaign=boxmaxxing", "permanent": false },
+    { "source": "/ig/sa", "destination": "/waitlist?utm_source=instagram&utm_medium=bio&utm_campaign=saad", "permanent": false },
+    { "source": "/ig/sv", "destination": "/waitlist?utm_source=instagram&utm_medium=bio&utm_campaign=saad-variation", "permanent": false },
+    { "source": "/tt/2d", "destination": "/waitlist?utm_source=tiktok&utm_medium=bio&utm_campaign=2d-explainer", "permanent": false },
+    { "source": "/tt/bm", "destination": "/waitlist?utm_source=tiktok&utm_medium=bio&utm_campaign=boxmaxxing", "permanent": false },
+    { "source": "/tt/sa", "destination": "/waitlist?utm_source=tiktok&utm_medium=bio&utm_campaign=saad", "permanent": false },
+    { "source": "/tt/sv", "destination": "/waitlist?utm_source=tiktok&utm_medium=bio&utm_campaign=saad-variation", "permanent": false },
+    { "source": "/yt/2d", "destination": "/waitlist?utm_source=youtube&utm_medium=bio&utm_campaign=2d-explainer", "permanent": false },
+    { "source": "/yt/bm", "destination": "/waitlist?utm_source=youtube&utm_medium=bio&utm_campaign=boxmaxxing", "permanent": false },
+    { "source": "/yt/sa", "destination": "/waitlist?utm_source=youtube&utm_medium=bio&utm_campaign=saad", "permanent": false },
+    { "source": "/yt/sv", "destination": "/waitlist?utm_source=youtube&utm_medium=bio&utm_campaign=saad-variation", "permanent": false }
   ],
   "headers": [
     {
