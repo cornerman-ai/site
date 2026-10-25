@@ -1,0 +1,8 @@
+{
+  "name": "amboapp-site",
+  "private": true,
+  "description": "amboapp.ai: static pages plus the Vercel functions in api/",
+  "dependencies": {
+    "@vercel/blob": "2.8.2"
+  }
+}
