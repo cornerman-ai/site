@@ -25,11 +25,12 @@ module.exports = async function handler(req, res) {
     return res.status(400).json({ ok: false, error: 'invalid_email' });
   }
 
-  // Where the signup came from, e.g. "waitlist", "waitlist/tiktok" or "challenge/instagram"
+  // Where the signup came from: the page, the platform and, from a per-account bio link, the account's content
+  // style, e.g. "waitlist", "waitlist/tiktok" or "waitlist/instagram/2d-explainer"
   const utm = body.utm && typeof body.utm === 'object' ? body.utm : {};
-  const channel = String(utm.utm_source || utm.ref || '').replace(/[^\w.-]/g, '').slice(0, 40);
+  const clean = (v) => String(v || '').replace(/[^\w.-]/g, '').slice(0, 40);
   const page = body.source === 'challenge' ? 'challenge' : 'waitlist';
-  const source = channel ? `${page}/${channel}` : page;
+  const source = [page, clean(utm.utm_source || utm.ref), clean(utm.utm_campaign)].filter(Boolean).join('/');
 
   try {
     const r = await fetch('https://app.loops.so/api/v1/contacts/create', {
