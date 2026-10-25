@@ -110,11 +110,12 @@ button:disabled{opacity:.6;cursor:default}
 .m-only{display:none}
 
 footer{
-  margin-top:auto; display:flex; align-items:center; justify-content:space-between;
+  position:relative; margin-top:auto; display:flex; align-items:center; justify-content:space-between;
   font-size:11px; line-height:14px; font-weight:500; text-transform:uppercase; color:var(--muted);
 }
 footer div{display:flex;gap:20px}
-.notrack-note{display:none;margin-top:8px;font-size:11px;line-height:14px;font-weight:500;text-transform:uppercase;color:var(--muted)}
+/* sits in the page's bottom padding, out of the flow, so it never makes the page taller than the screen */
+.notrack-note{display:none;position:absolute;left:0;top:100%;margin-top:8px;font-size:11px;line-height:14px;font-weight:500;text-transform:uppercase;color:var(--muted)}
 html.notrack .notrack-note{display:block}
 
 /* Tablet */
@@ -331,8 +332,8 @@ html.notrack .notrack-note{display:block}
       <a href="/terms">Terms</a>
       <span>© 2026 AMBO</span>
     </div>
+    <span class="notrack-note">Not tracked on this device</span>
   </footer>
-  <div class="notrack-note">Not tracked on this device</div>
 </div>
 
 <script>
