@@ -1,9 +1,11 @@
 // Vercel serverless function: POST /api/waitlist
-// Adds the signup to Loops as a contact. The confirmation email is a Loop in Loops
-// triggered by "Contact added" with userGroup = "waitlist".
+// Adds the signup to Loops as a contact, then sends the confirmation email as a Loops
+// transactional email ("Waitlist confirmation"), so it skips the bulk-mail headers and
+// tracking that put a Loop email in Gmail's Promotions tab.
 // Needs env var LOOPS_API_KEY (Vercel > Project > Settings > Environment Variables).
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const CONFIRMATION_ID = 'cmvnfqng50uj10jzzesogge8o'; // app.loops.so/transactional/<id>
 
 module.exports = async function handler(req, res) {
   if (req.method !== 'POST') {
@@ -36,8 +38,24 @@ module.exports = async function handler(req, res) {
       body: JSON.stringify({ email, source, userGroup: 'waitlist', subscribed: true }),
     });
 
-    // 409 = already on the list: treat as success so people can't probe the list.
-    if (r.ok || r.status === 409) return res.status(200).json({ ok: true });
+    // 409 = already on the list: treat as success so people can't probe the list,
+    // and don't send the confirmation again.
+    if (r.status === 409) return res.status(200).json({ ok: true });
+
+    if (r.ok) {
+      // They're on the list either way, so a failed confirmation is only logged.
+      try {
+        const t = await fetch('https://app.loops.so/api/v1/transactional', {
+          method: 'POST',
+          headers: { Authorization: `Bearer ${key}`, 'Content-Type': 'application/json' },
+          body: JSON.stringify({ transactionalId: CONFIRMATION_ID, email }),
+        });
+        if (!t.ok) console.error('Loops confirmation error', t.status, await t.text());
+      } catch (err) {
+        console.error('Loops confirmation failed', err);
+      }
+      return res.status(200).json({ ok: true });
+    }
 
     const detail = await r.text();
     console.error('Loops error', r.status, detail);
