@@ -1,7 +1,7 @@
 // Vercel serverless function: POST /api/review-upload
 // The /review page uploads videos straight from the browser to Vercel Blob. This function gives out the
 // upload token (only to our own pages, only for videos up to 5 GB) and, when Vercel Blob reports the upload
-// finished, posts the video to Slack and sends the "Footage received" email.
+// finished, posts the video to Slack, sends the "Footage received" email and marks the contact footageSubmitted.
 // Needs BLOB_READ_WRITE_TOKEN (added when a Blob store is connected to the project), SLACK_WEBHOOK_URL and
 // LOOPS_API_KEY (Vercel > Project > Settings > Environment Variables).
 
@@ -29,16 +29,34 @@ async function notifySlack(email, url) {
   }
 }
 
+function loops(method, path, body) {
+  return fetch(`https://app.loops.so/api/v1/${path}`, {
+    method,
+    headers: { Authorization: `Bearer ${process.env.LOOPS_API_KEY}`, 'Content-Type': 'application/json' },
+    body: body && JSON.stringify(body),
+  });
+}
+
 async function sendReceipt(email) {
   try {
-    const r = await fetch('https://app.loops.so/api/v1/transactional', {
-      method: 'POST',
-      headers: { Authorization: `Bearer ${process.env.LOOPS_API_KEY}`, 'Content-Type': 'application/json' },
-      body: JSON.stringify({ transactionalId: RECEIPT_ID, email }),
-    });
+    const r = await loops('POST', 'transactional', { transactionalId: RECEIPT_ID, email });
     if (!r.ok) console.error('Loops receipt error', r.status, await r.text());
   } catch (err) {
     console.error('Loops receipt failed', err);
+  }
+}
+
+// Marks the contact footageSubmitted, so the footage invite's reminder skips them. Only for people already on
+// the list: an upload alone isn't consent to marketing email, so nobody new is added here.
+async function markSubmitted(email) {
+  try {
+    const f = await loops('GET', `contacts/find?email=${encodeURIComponent(email)}`);
+    if (!f.ok) return console.error('Loops find error', f.status, await f.text());
+    if (!(await f.json())[0]) return;
+    const u = await loops('PUT', 'contacts/update', { email, footageSubmitted: true });
+    if (!u.ok) console.error('Loops mark error', u.status, await u.text());
+  } catch (err) {
+    console.error('Loops mark failed', err);
   }
 }
 
@@ -79,7 +97,7 @@ module.exports = async function handler(req, res) {
       },
       onUploadCompleted: async ({ blob, tokenPayload }) => {
         const { email } = JSON.parse(tokenPayload);
-        await Promise.all([notifySlack(email, blob.url), sendReceipt(email)]);
+        await Promise.all([notifySlack(email, blob.url), sendReceipt(email), markSubmitted(email)]);
       },
     });
     return res.status(200).json(result);
