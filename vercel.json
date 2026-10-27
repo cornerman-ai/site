@@ -22,7 +22,11 @@
     { "source": "/yd", "destination": "/waitlist?utm_source=youtube&utm_medium=bio&utm_campaign=2d-explainer", "permanent": false },
     { "source": "/yb", "destination": "/waitlist?utm_source=youtube&utm_medium=bio&utm_campaign=boxmaxxing", "permanent": false },
     { "source": "/ys", "destination": "/waitlist?utm_source=youtube&utm_medium=bio&utm_campaign=saad", "permanent": false },
-    { "source": "/yv", "destination": "/waitlist?utm_source=youtube&utm_medium=bio&utm_campaign=saad-variation", "permanent": false }
+    { "source": "/yv", "destination": "/waitlist?utm_source=youtube&utm_medium=bio&utm_campaign=saad-variation", "permanent": false },
+    { "source": "/fd", "destination": "/waitlist?utm_source=facebook&utm_medium=bio&utm_campaign=2d-explainer", "permanent": false },
+    { "source": "/fb", "destination": "/waitlist?utm_source=facebook&utm_medium=bio&utm_campaign=boxmaxxing", "permanent": false },
+    { "source": "/fs", "destination": "/waitlist?utm_source=facebook&utm_medium=bio&utm_campaign=saad", "permanent": false },
+    { "source": "/fv", "destination": "/waitlist?utm_source=facebook&utm_medium=bio&utm_campaign=saad-variation", "permanent": false }
   ],
   "headers": [
     {

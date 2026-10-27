@@ -12,7 +12,7 @@ AMBO website (formerly the corner-man.ai site). Static site on Vercel.
 
 Signups land in Loops with `userGroup = waitlist` and `source = waitlist`, `waitlist/<utm_source>` (e.g. `amboapp.ai/waitlist?utm_source=tiktok`) or `waitlist/<utm_source>/<utm_campaign>` from a per-account bio link.
 Short links for bios and posts redirect to those (`vercel.json`): `/waitlist/yt` → youtube, `/waitlist/tt` → tiktok, `/waitlist/ig` → instagram. A new one is one more line there.
-Per-account bio links (one per platform and content style, listed in the Accounts sheet): two letters, platform (`i`nstagram, `t`iktok, `y`outube) then style (`d` = 2d-explainer, `b` = boxmaxxing, `s` = saad, `v` = saad-variation), e.g. `/id` → `/waitlist?utm_source=instagram&utm_medium=bio&utm_campaign=2d-explainer`. Loops keeps both as the contact's source (`waitlist/instagram/2d-explainer`), and PostHog has them as `utm_source` and `utm_campaign`.
+Per-account bio links (one per platform and content style, listed in the Accounts sheet): two letters, platform (`i`nstagram, `t`iktok, `y`outube, `f`acebook) then style (`d` = 2d-explainer, `b` = boxmaxxing, `s` = saad, `v` = saad-variation), e.g. `/id` → `/waitlist?utm_source=instagram&utm_medium=bio&utm_campaign=2d-explainer`. Loops keeps both as the contact's source (`waitlist/instagram/2d-explainer`), and PostHog has them as `utm_source` and `utm_campaign`.
 
 ## The video
 `waitlist/ambo-waitlist.mp4` (720 x 1280, about 4 MB, muted autoplay loop) with its poster `ambo-waitlist.jpg`, in the
