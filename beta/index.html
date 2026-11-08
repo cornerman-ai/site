@@ -97,10 +97,9 @@ h2{margin:32px 0 12px;font-size:13px;line-height:16px;font-weight:500;text-trans
 .desk-top b{font-size:19px;line-height:24px}
 .desk span{display:block;font-size:14px;line-height:20px;color:var(--muted)}
 .desk-top span{margin-top:4px}
-.desk ol{margin:0;padding:0;list-style:none}
+.desk ol{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:16px}
 .desk li{display:flex;gap:12px}
 .desk i{flex:none;width:26px;height:26px;border-radius:13px;background:var(--raised);display:flex;align-items:center;justify-content:center;font-style:normal;font-size:14px;font-weight:500;color:var(--bronze)}
-.desk .back{margin:10px 0 10px 38px;align-items:center;gap:8px;font-size:14px;line-height:20px}
 
 footer{
   margin-top:auto; display:flex; align-items:center; justify-content:center; gap:16px;
@@ -154,12 +153,11 @@ html.notrack .notrack-note{display:inline}
         <a class="btn btn-main" id="step2" href="#">Join the AMBO beta</a></div>
       <p class="stuck" role="status">Didn't open? Tap <b>⋯</b> in the corner, choose <b>Open in browser</b>, then tap the button again.</p>
     </div>
-    <!-- A laptop: scan to open this page on the iPhone (/beta/qr, tagged), then the same two steps there -->
+    <!-- A laptop: scan to open this page on the iPhone (/beta/qr, tagged), then the two steps there (no "come back to this page": Mathé, 2026-11-08) -->
     <aside class="desk" aria-label="Join on your iPhone">
       <div class="desk-top"><img src="/beta/qr.svg" alt="QR code to this page"><div><b>Join on your iPhone</b><span>Scan with your camera to open this page there. About 2 minutes.</span></div></div>
       <ol>
         <li><i>1</i><div><b>Get TestFlight</b><span>Apple's free app for testing apps.</span></div></li>
-        <li class="back"><svg viewBox="0 0 20 20" width="16" height="16" fill="none" aria-hidden="true"><path d="M8 5L4 9l4 4" stroke="#CA986D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 9h7a5 5 0 010 10H9" stroke="#CA986D" stroke-width="1.8" stroke-linecap="round"/></svg>Once installed, come back to this page</li>
         <li><i>2</i><div><b>Join the AMBO beta</b><span>In TestFlight, tap Accept, then Install.</span></div></li>
       </ol>
     </aside>
