@@ -56,11 +56,11 @@ footer{margin-top:64px;font-size:11px;font-weight:500;text-transform:uppercase;c
   
   <div class="eyebrow">Privacy</div>
   <h1>Privacy policy</h1>
-  <div class="updated">Last updated 4 November 2026 · Version 5</div>
+  <div class="updated">Last updated 8 November 2026 · Version 6</div>
 
   <p>AMBO ("AMBO", the "App", "we", "us") is a mobile app that records your boxing sessions on your phone, analyses your movement, and gives you feedback and drills. This policy covers the App, the amboapp.ai website and the AMBO early access list. It explains what personal data we collect, how we use it, and the choices you have.</p>
 
-  <div class="callout"><strong>The short version.</strong> The App records video and audio of you training and analyses your movement on your device. We upload that recording and the movement data from it to our cloud and use it to improve and train the models that power the App. You sign in with Apple or Google, and your account is identified by the email address they share with us (the AMBO challenge lets you try once before you sign in). Payments go through Apple, so we never see your card. We measure how the App is used and catch crashes with PostHog, which stores that data in the EU. We don't ask for your phone number, we don't sell your data and we don't run ads. You can delete your account in the App, or ask us to delete everything, at any time.</div>
+  <div class="callout"><strong>The short version.</strong> The App records video and audio of you training and analyses your movement on your device. We upload that recording and the movement data from it to our cloud and use it to improve and train the models that power the App. You sign in with Apple or Google, and your account is identified by the email address they share with us (the AMBO challenge lets you try once before you sign in). Payments go through Apple, so we never see your card. We measure how the App is used and catch crashes with PostHog, which stores that data in the EU. In the AMBO beta on TestFlight you don't need an account, and you can stop us using your rounds for training at any time in Settings. We don't ask for your phone number, we don't sell your data and we don't run ads. You can delete your account in the App, or ask us to delete everything, at any time.</div>
 
   <h2>1. Who is responsible for your data</h2>
   <p>AMBO is provided by Mathe Wieme, an individual based in the United Arab Emirates, who is the controller of the personal data described here. Questions or requests: <a href="mailto:support@amboapp.ai">support@amboapp.ai</a>.</p>
@@ -79,12 +79,21 @@ footer{margin-top:64px;font-size:11px;font-weight:500;text-transform:uppercase;c
   <p>To judge how well you keep your chin tucked, the App finds your face in the camera picture on your device and works out where your chin is. The face detection and face landmarks are processed on your device only and are not stored or uploaded; the App keeps just the position of your chin in each analysed frame, as part of the movement data. Your try's video itself, which shows your face, is uploaded as described above. We do not use face data to identify you, and we do not share it.</p>
   <h3>Account and identifiers</h3>
   <p>A login is required to use the App, except for your first AMBO challenge try: before you sign in, we assign an anonymous user identifier so that try can be uploaded and scored, and it becomes your account's identifier if you then sign in. You sign in with Apple or Google; we never receive your password. From that provider we receive your email address and, if you choose to share it, your name, and we assign a user identifier so your data can be stored and synced across sessions and devices. With Sign in with Apple you can hide your email, in which case we receive a private relay address from Apple instead. We do not collect your phone number.</p>
+  <p>In the AMBO beta no login is needed: we assign an anonymous user identifier the first time you use it, and your rounds and settings are stored under it. After your first session you can choose to save your progress with Apple, Google or an email address you type in; if you do, we link it to that identifier.</p>
   <h3>Subscriptions and purchases</h3>
   <p>AMBO Premium is bought through the Apple App Store, and Apple processes the payment. We never receive your card or bank details. We receive information about your subscription, such as which plan you chose, whether you are in a free trial, renewal and expiry dates and transaction identifiers, so we can unlock Premium and help with billing questions.</p>
   <h3>Reminders</h3>
   <p>If you turn on training reminders and allow notifications, we store the days and time you choose and a notification token for your device so we can send them. You can change or turn off reminders in the App, or turn off notifications for AMBO in your iPhone's Settings.</p>
   <h3>Preferences and consent</h3>
   <p>The App stores the answers and preferences you choose during setup and in Settings (such as your boxing experience, goal, how you want to box your assessment, sessions per week, stance and session settings) and a record that you accepted this policy, including the date and version. Your progress and settings are also kept on your phone so the App works offline.</p>
+  <h3>AMBO beta (TestFlight)</h3>
+  <p>The AMBO beta is a free, temporary version of the App, distributed through Apple's TestFlight. It ends when AMBO launches on the App Store, and the beta app stops working then. In the beta we also collect:</p>
+  <ul>
+    <li>your setup answers: your boxing experience, whether you know the punch numbers, your goal, your age band and how you found AMBO, plus anything you choose to type for "Something else" or "Somewhere else";</li>
+    <li>the feedback you send after a session (how it felt and any note) or from Settings, and your votes on what we should build next;</li>
+    <li>the email address you give us, if you choose to, with the way you gave it (Apple, Google or typed).</li>
+  </ul>
+  <p>Before your first session the App tells you that it films your rounds to count your punches and to train our models, and that you can turn this off. The switch is in Settings, "Keep my rounds to train AMBO". It is on unless you turn it off, and always off if you tell us you are under 16.</p>
   <h3>App usage, crash reports and session replays (App)</h3>
   <p>We use PostHog, with its servers in the EU, to understand how the App is used and to find and fix problems. The App sends PostHog the screens you open and how long you stay on them, the buttons you tap, your setup answers and settings, your drills, sessions and AMBO challenge tries with their scores, sign-ins, purchases and subscription changes, crash reports and errors, and session replays: a recording of the App's screens as you use them. Session replays hide the camera picture and your session videos, and they hide anything you type. PostHog also works out your approximate location (city and country) from your IP address. Before you sign in, this data is tied to a random identifier on your phone; once you sign in, it is linked to your account, your name and your email address. We use it only for AMBO, not for advertising.</p>
   <h3>Technical data</h3>
@@ -96,7 +105,8 @@ footer{margin-top:64px;font-size:11px;font-weight:500;text-transform:uppercase;c
     <li><strong>To store and sync your sessions</strong> so they are available to you.</li>
     <li><strong>To manage your subscription:</strong> unlocking Premium, showing your trial and plan, and answering billing questions.</li>
     <li><strong>To send the reminders you ask for.</strong></li>
-    <li><strong>To improve and train our machine-learning models.</strong> We use your uploaded recordings and the movement data derived from them to develop, evaluate and retrain the models that power AMBO's analysis and feedback.</li>
+    <li><strong>To improve and train our machine-learning models.</strong> We use your uploaded recordings and the movement data derived from them to develop, evaluate and retrain the models that power AMBO's analysis and feedback. We do this on the basis of our legitimate interest in making AMBO's coaching accurate, and you can object at any time: in the beta with the "Keep my rounds to train AMBO" switch in Settings, or by emailing us. Beta rounds you don't let us keep, and the rounds of anyone who told us they are under 16, are used only to score them and are then deleted.</li>
+    <li><strong>To run the beta:</strong> using your setup answers, feedback and votes to improve the App and decide what to build next, and, if you give us your email, sending you a short weekly summary of your training and telling you when AMBO launches. Emails are based on your consent, which you can withdraw at any time by unsubscribing.</li>
     <li><strong>To run early access:</strong> confirming your spot, sending your launch offer and occasional updates about AMBO, and understanding which channels bring people in. This is based on your consent, which you can withdraw at any time by unsubscribing.</li>
     <li><strong>To understand how the App is used and improve it:</strong> which screens and drills people use, where they get stuck, and how subscriptions start, renew and end.</li>
     <li><strong>To maintain, secure and debug</strong> the service, including finding and fixing crashes.</li>
@@ -123,10 +133,11 @@ footer{margin-top:64px;font-size:11px;font-weight:500;text-transform:uppercase;c
   <p>We are based in the United Arab Emirates, and our service providers may store and process your data in other countries, including the United States. Where data is transferred internationally, we rely on our providers' safeguards for protecting it.</p>
 
   <h2>7. How long we keep your data</h2>
-  <p>We keep App recordings and derived data for as long as needed to provide the App and to develop and improve our models, unless you ask us to delete them. Session replays are kept for 30 days; other App usage data and crash reports are kept as long as needed to understand and improve the App, unless you ask us to delete them. We keep your early access email until you unsubscribe or ask us to delete it. If AMBO does not launch, we delete the list.</p>
+  <p>We keep App recordings and derived data for as long as needed to provide the App and to develop and improve our models, unless you ask us to delete them. Beta rounds that are not kept for training are deleted once they have been scored. Session replays are kept for 30 days; other App usage data and crash reports are kept as long as needed to understand and improve the App, unless you ask us to delete them. We keep your early access email until you unsubscribe or ask us to delete it. If AMBO does not launch, we delete the list.</p>
 
   <h2>8. Your rights and choices</h2>
   <p>You can delete your account in the App (Settings, Delete account; in the AMBO challenge, the settings icon on its home screen once you're signed in). We then delete your account and the data linked to it, except anything we must keep by law. Your App usage data in PostHog is not deleted automatically: email us and we will delete it. Deleting your account does not cancel an App Store subscription; cancel it in your Apple ID settings.</p>
+  <p>In the beta, Settings has "Keep my rounds to train AMBO", to stop us using your rounds for training, and "Delete my data", which deletes your uploaded rounds and clears the App on your phone. Once the beta ends and the beta app stops working, email us and we will delete your beta data.</p>
   <p>You can unsubscribe from emails with the link in any email. You can ask us to access, correct or delete your data, or to stop using it to improve our models, by emailing <a href="mailto:support@amboapp.ai">support@amboapp.ai</a>. Please contact us from the email address linked to your account or signup so we can find your data.</p>
   <p>Depending on where you live, you may have additional rights under laws such as the UAE Personal Data Protection Law (Federal Decree-Law No. 45 of 2021), the EU/UK GDPR, or the California Consumer Privacy Act. We honour these rights where they apply to you. If you are in the EU or UK, you can also complain to your local data protection authority.</p>
 
@@ -134,7 +145,7 @@ footer{margin-top:64px;font-size:11px;font-weight:500;text-transform:uppercase;c
   <p>We use reasonable technical and organisational measures, including the security features of our cloud providers, to protect your data. No method of transmission or storage is completely secure, so we cannot guarantee absolute security.</p>
 
   <h2>10. Children</h2>
-  <p>AMBO is not directed to children under 16, and we do not knowingly collect data from them. If you believe a child has used AMBO, contact us and we will delete the data.</p>
+  <p>AMBO is not directed to children under 16, and we do not knowingly collect data from them. If you believe a child has used AMBO, contact us and we will delete the data. In the beta, if you tell us you are under 16, your rounds are used only to score them and are then deleted; they are never used to train our models.</p>
 
   <h2>11. Changes to this policy</h2>
   <p>We may update this policy and will change the date at the top when we do. If we make a material change to how we handle App data, we will ask you to review and accept the updated policy in the App before you continue recording.</p>
