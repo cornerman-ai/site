@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AMBO · Join the beta</title>
+<meta name="description" content="Free guided boxing sessions on your iPhone while AMBO is in beta. AMBO calls the punches and counts every one you throw.">
+<meta name="theme-color" content="#101419">
+<link rel="canonical" href="https://amboapp.ai/beta">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://amboapp.ai/beta">
+<meta property="og:title" content="AMBO · The beta is open">
+<meta property="og:description" content="Free guided boxing sessions on your iPhone. AMBO calls the punches and counts every one you throw.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&display=swap">
+<style>
+:root{
+  --void:#101419; --card:#22272e; --raised:#2c3138; --text:#f8f6f4; --muted:#8098b7; --bronze:#ca986d; --bronze-hover:#d4a67e;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--void);color:var(--text)}
+body{
+  font-family:"DM Sans",system-ui,-apple-system,sans-serif;
+  font-feature-settings:"ss03","ss07";
+  -webkit-font-smoothing:antialiased;
+}
+a{color:var(--muted);text-decoration:none}
+a:hover{color:var(--text)}
+
+/* One column at every width: nearly every visitor comes from a bio link or a story on a phone. */
+.page{
+  min-height:100vh; min-height:100dvh;
+  max-width:480px; margin:0 auto;
+  padding:20px 20px 24px; padding-bottom:max(24px,env(safe-area-inset-bottom));
+  display:flex; flex-direction:column;
+}
+.logo{display:flex;justify-content:center;align-items:center;gap:10px;height:28px}
+.logo svg{width:96px;height:auto;display:block}
+
+/* Headline, how to join, one line of small print. Only how to install: the explaining is in the email (Mathé, 2026-11-08). */
+main{padding:24px 0 32px;display:flex;flex-direction:column}
+/* raised to the AMBO letters' middle, not the wordmark's: the mark's tail hangs below them (Mathé, 2026-11-08) */
+.beta{padding:4px 10px;border-radius:10px;background:#ca986d29;color:var(--bronze);font-size:13px;line-height:16px;font-weight:500;text-transform:uppercase;transform:translateY(-2.8px)}
+h1{margin:0;font-size:36px;line-height:40px;font-weight:500;text-align:center}
+
+/* How to join: two steps, with coming back here for the link as the bridge between them. Assume nobody has TestFlight
+   yet (Mathé, 2026-11-08). */
+h2{margin:32px 0 12px;font-size:13px;line-height:16px;font-weight:500;text-transform:uppercase;color:var(--muted)}
+.part{padding:22px 20px 20px;border-radius:16px;background:var(--card);display:flex;flex-direction:column}
+.part small{font-size:12px;line-height:16px;font-weight:500;text-transform:uppercase;letter-spacing:.04em;color:var(--bronze)}
+.part b{margin-top:6px;font-size:22px;line-height:28px;font-weight:500}
+.part span{margin-top:6px;font-size:14px;line-height:20px;color:var(--muted)}
+.bridge{display:flex;flex-direction:column;align-items:center;padding:6px 0}
+.bridge::before,.bridge::after{content:"";height:18px;border-left:2px dashed var(--raised)}
+.bridge p{margin:6px 0;padding:10px 16px;border:1px solid var(--raised);border-radius:22px;display:flex;align-items:center;gap:8px;font-size:15px;line-height:20px}
+.bridge svg{flex:none}
+.btn{
+  display:flex; align-items:center; justify-content:center; height:52px; margin-top:16px;
+  border-radius:12px; font-size:17px; font-weight:500;
+}
+.btn-main{background:var(--bronze);color:var(--void)}
+.btn-main:hover{background:var(--bronze-hover);color:var(--void)}
+.btn[aria-disabled="true"]{background:var(--raised);color:#f8f6f466;pointer-events:none}
+.note{margin:32px 0 0;font-size:13px;line-height:18px;color:var(--muted);text-align:center}
+.note a{color:var(--text);text-decoration:underline;text-underline-offset:2px}
+
+/* shown when a tap didn't leave the page (Instagram's and TikTok's browsers sometimes swallow it) */
+.stuck{display:none;margin:12px 0 0;padding:12px 14px;border:1px solid var(--bronze);border-radius:12px;background:#ca986d14;font-size:14px;line-height:20px}
+.is-stuck .stuck{display:block}
+/* the steps only make sense on an iPhone */
+.android{display:none}
+.is-android .android{display:block}
+.is-android .ios{display:none}
+
+footer{
+  margin-top:auto; display:flex; align-items:center; justify-content:center; gap:16px;
+  font-size:11px; line-height:14px; font-weight:500; text-transform:uppercase; color:var(--muted);
+}
+.notrack-note{display:none}
+html.notrack .notrack-note{display:inline}
+</style>
+<!-- PostHog (EU, cookieless), the same setup as /waitlist (see README); /waitlist/off turns it off here too -->
+<script>
+    !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],Object.defineProperty(u,"toString",{configurable:!0,enumerable:!0,writable:!0,value:function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e}}),Object.defineProperty(u.people,"toString",{configurable:!0,enumerable:!0,writable:!0,value:function(){return u.toString(1)+".people (stub)"}}),o="init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagResult isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey getNextSurveyStep identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+    var noTrack = false;
+    try { noTrack = localStorage.getItem('ambo_notrack') === '1'; } catch (e) {}
+    if (noTrack) document.documentElement.classList.add('notrack');
+    else posthog.init('phc_sx3QCxV9Jo7g6N9oX5ebqYkHBcyyRdnq9z9W5XwCMcXq', {
+        api_host: 'https://e.amboapp.ai',
+        ui_host: 'https://eu.posthog.com',
+        defaults: '2026-05-30',
+        cookieless_mode: 'always',
+        person_profiles: 'never',
+    })
+</script>
+</head>
+<body>
+<div class="page" id="page">
+
+  <header class="logo">
+    <a href="https://amboapp.ai" aria-label="AMBO home">
+      <svg viewBox="0 0 490 78" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AMBO">
+        <path d="M145.743 0.66394H0C0 0.66394 65.3508 22.0842 86.469 29.0082C93.0468 31.1664 97.459 30.1204 103.367 26.5185C113.767 20.169 145.743 0.671308 145.743 0.671308V0.66394Z" fill="#CA986D"/>
+        <path d="M154.965 0.66394L126.009 20.3237C119.748 24.5738 114.894 30.5845 112.051 37.5969L95.7646 77.7929L180.274 0.66394H154.965Z" fill="#8098B7"/>
+        <path d="M407.9 24.4931V24.1542C408.674 23.565 409.462 22.7474 410.279 21.7014C411.87 19.4769 412.659 16.8914 412.659 13.945C412.659 9.99687 411.414 6.80005 408.917 4.34718C406.42 1.89432 403.134 0.67157 399.046 0.67157H363.918V48.3072H399.724C403.805 48.3072 407.097 47.0845 409.594 44.6316C412.084 42.1787 413.336 38.9819 413.336 35.0338C413.336 31.9032 412.43 29.2073 410.618 26.9312C409.801 25.8852 408.895 25.075 407.893 24.4783L407.9 24.4931ZM372.772 8.50158H398.03C399.798 8.50158 401.204 9.04666 402.25 10.1368C403.296 11.227 403.812 12.7223 403.812 14.6301C403.812 16.3537 403.282 17.7459 402.214 18.8139C401.146 19.882 399.753 20.4123 398.03 20.4123H372.772V8.50158ZM402.759 38.7167C401.602 39.8953 400.254 40.4846 398.707 40.4846H372.764V28.235H398.707C400.247 28.235 401.595 28.8243 402.759 30.0028C403.915 31.1814 404.497 32.6325 404.497 34.3561C404.497 36.0797 403.915 37.5308 402.759 38.7094V38.7167Z" fill="#F8F6F4"/>
+        <path d="M307.562 39.1516H306.126L285.671 0.679138H274.231V48.3074H283.085V15.3079H284.441L302.178 48.3074H311.54L329.277 15.3079H330.64V48.3074H339.479V0.679138H328.025L307.562 39.1516Z" fill="#F8F6F4"/>
+        <path d="M215.228 0.679138L187.031 48.3148H197.638L203.642 38.1056H237.378L243.373 48.3148H253.98L225.784 0.679138H215.236H215.228ZM208.437 29.9367L219.64 10.881H221.386L232.575 29.9367H208.437Z" fill="#F8F6F4"/>
+        <path d="M461.818 0C443.02 0 434.041 9.95878 434.041 24.4918C434.041 39.0249 443.02 48.9836 461.818 48.9836C480.616 48.9836 489.595 39.0249 489.595 24.4918C489.595 9.95878 480.616 0 461.818 0ZM461.818 40.4833C449.539 40.4833 443.683 33.9792 443.683 24.4918C443.683 15.0045 449.546 8.50032 461.818 8.50032C474.09 8.50032 479.953 14.9971 479.953 24.4918C479.953 33.9865 474.09 40.4833 461.818 40.4833Z" fill="#F8F6F4"/>
+      </svg>
+    </a>
+    <span class="beta">Beta</span>
+  </header>
+
+  <main>
+    <h1>Train with AMBO before it launches.</h1>
+
+    <div class="ios">
+      <h2>How to join · about 2 minutes</h2>
+      <!-- Plain links the visitor taps (not redirects): the most reliable way out of an in-app browser -->
+      <div class="part"><small>Step 1</small><b>Get TestFlight</b><span>Apple's free app for testing apps. AMBO's beta runs in it.</span>
+        <a class="btn btn-main" id="step1" href="https://apps.apple.com/app/testflight/id899247664">Get TestFlight</a></div>
+      <div class="bridge"><p><svg viewBox="0 0 20 20" width="18" height="18" fill="none" aria-hidden="true"><path d="M8 5L4 9l4 4" stroke="#CA986D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 9h7a5 5 0 010 10H9" stroke="#CA986D" stroke-width="1.8" stroke-linecap="round"/></svg>Once installed, come back to this page</p></div>
+      <div class="part"><small>Step 2</small><b>Join the AMBO beta</b><span>TestFlight opens: tap Accept, then Install. AMBO lands on your home screen, ready for your first session.</span>
+        <a class="btn btn-main" id="step2" href="#">Join the AMBO beta</a></div>
+      <p class="stuck" role="status">Didn't open? Tap <b>⋯</b> in the corner, choose <b>Open in browser</b>, then tap the button again.</p>
+    </div>
+    <p class="note android">The beta is iPhone only for now. <a href="/waitlist">Get told when AMBO is on Android</a></p>
+    <p class="note">The beta ends when AMBO launches.</p>
+  </main>
+
+  <footer>
+    <a href="/privacy">Privacy</a>
+    <a href="/terms">Terms</a>
+    <span>© 2026 AMBO</span>
+    <span class="notrack-note">Not tracked on this device</span>
+  </footer>
+</div>
+
+<script>
+(function(){
+  // The beta's public TestFlight link (App Store Connect > TestFlight > External testing > Guided beta > Public link).
+  // Empty, the Join button (step 2) shows "Opens soon".
+  var TESTFLIGHT_URL = 'https://testflight.apple.com/join/3BpB2ftJ';
+
+  var page = document.getElementById('page');
+  var step1 = document.getElementById('step1');
+  var step2 = document.getElementById('step2');
+  var ua = navigator.userAgent;
+  var android = /Android/i.test(ua);
+  // which app's browser the visitor is in, for the tap events
+  var browser = /Instagram/.test(ua) ? 'instagram' : /musical_ly|BytedanceWebview|TikTok/i.test(ua) ? 'tiktok'
+    : /FBAN|FBAV/.test(ua) ? 'facebook' : 'other';
+  if (android) page.classList.add('is-android');
+
+  if (TESTFLIGHT_URL) step2.href = TESTFLIGHT_URL;
+  else { step2.textContent = 'Opens soon'; step2.setAttribute('aria-disabled', 'true'); step2.removeAttribute('href'); }
+
+  // The link's tags (from a short link like /beta/ig), read once; then the address bar goes back to a clean /beta,
+  // so a copied link doesn't carry them to someone else. PostHog keeps them on this visit's events.
+  var tags = (function(){
+    var q = new URLSearchParams(location.search), o = {};
+    ['utm_source','utm_medium','utm_campaign','utm_content','ref'].forEach(function(k){ if(q.get(k)) o[k]=q.get(k); });
+    return o;
+  })();
+  if (Object.keys(tags).length && window.posthog && posthog.register) posthog.register(tags);
+  if (location.search) { try { history.replaceState(null, '', location.pathname + location.hash); } catch (e) {} }
+
+  // A PostHog event 'beta step' per tap (which step, the app the visitor is in): taps, not installs. If the page is
+  // still showing 2.5 s after a tap inside an app's browser, the link didn't leave it: show how to open it in Safari.
+  [[step1, 1], [step2, 2]].forEach(function(s){
+    s[0].addEventListener('click', function(){
+      if (window.posthog && posthog.capture) posthog.capture('beta step', { step: s[1], browser: browser, android: android });
+      if (browser === 'other') return;
+      setTimeout(function(){ if (document.visibilityState === 'visible') page.classList.add('is-stuck'); }, 2500);
+    });
+  });
+})();
+</script>
+</body>
+</html>
