@@ -1,6 +1,9 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "rewrites": [
+    { "source": "/beta/em", "destination": "/api/beta" }
+  ],
   "redirects": [
     { "source": "/", "destination": "/waitlist", "permanent": false },
     { "source": "/waitlist/yt", "destination": "/waitlist?utm_source=youtube", "permanent": false },
@@ -14,7 +17,6 @@
     { "source": "/beta/yt", "destination": "/beta?utm_source=youtube", "permanent": false },
     { "source": "/beta/tt", "destination": "/beta?utm_source=tiktok", "permanent": false },
     { "source": "/beta/ig", "destination": "/beta?utm_source=instagram", "permanent": false },
-    { "source": "/beta/em", "destination": "/beta?utm_source=email", "permanent": false },
     { "source": "/beta/qr", "destination": "/beta?utm_source=qr", "permanent": false },
     { "source": "/id", "destination": "/waitlist?utm_source=instagram&utm_medium=bio&utm_campaign=2d-explainer", "permanent": false },
     { "source": "/ib", "destination": "/waitlist?utm_source=instagram&utm_medium=bio&utm_campaign=boxmaxxing", "permanent": false },
